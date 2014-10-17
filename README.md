@@ -2,7 +2,7 @@ Welcome to Wello Fridge
 
 Live Demo: https://wellofridge.herokuapp.com/
 
-This is a fun project based off of a joking idea on Trello's development board for shoving their product into a refrigerator.
+This is a fun project based off of a joking idea on Trello's development board for shoving their product into a refrigerator: https://trello.com/card/trello-refrigerator/4d5ea62fd76aa1136000000c/1339
 
 You should be able to get this thing running with just a quick little:
 
