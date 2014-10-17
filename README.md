@@ -12,12 +12,12 @@ You should be able to get this thing running with just a quick little:
 
 But in order for that to work, you'll need to set these environmental variables:
 
-SESSION_SECRET
-TRELLO_KEY
-TRELLO_SECRET
-GOOGLE_API
-OPEN_WEATHER_MAP_API
-NEW_RELIC_LICENSE_KEY
+* SESSION_SECRET
+* TRELLO_KEY
+* TRELLO_SECRET
+* GOOGLE_API
+* OPEN_WEATHER_MAP_API
+* NEW_RELIC_LICENSE_KEY
 
 And optionally you can set MONGOHQ_URL
 
