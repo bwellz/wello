@@ -1,0 +1,108 @@
+<div class="panel1-bot-mid" ng-controller="BoardController" ng-init="initBoards()" board-keys>
+	<div class="fridge1-bot-content-left">
+		<div type="button" ng-class="{'custom_board_active lab-0-hover':(custom_board===6)}" class="custom_board lab-0" ng-click="loadBoard(welcome_board)">
+			Wello Progress
+		</div>	
+		<div type="button" ng-class="{'custom_board_active lab-1-hover':(custom_board===1)}" class="custom_board lab-1" ng-click="loadBoard(resume_board)">
+			Brad's Resume
+		</div>	
+		<div type="button" ng-class="{'custom_board_active lab-2-hover':(custom_board===2)}" class="custom_board lab-2" ng-click="loadBoard(portfolio_board)">
+			Brad's Portfolio
+		</div>	
+		<div type="button" ng-class="{'custom_board_active lab-3-hover':(custom_board===4)}" class="custom_board lab-3" ng-click="loadBoard(recipe_board)">
+			Recipes
+		</div>
+		<div type="button" ng-class="{'custom_board_active lab-4-hover':(custom_board===3)}" class="custom_board lab-4" ng-click="loadBoard(food_board)">
+			Food
+		</div>	
+		<div type="button" ng-class="{'custom_board_active lab-5-hover':(custom_board===5)}" class="custom_board lab-5" ng-click="loadBoard(art_board)">
+			Kid's Artwork
+		</div>			
+		<button type="button" class="btn btn-primary" ng-click="signout()">
+			<span class="em9 glyphicon glyphicon-user"></span> Logout
+		</button>
+	</div>
+	<div class="fridge1-bot-content-mid pos_rel" ng-controller="WeatherController" data-ng-init="[loadWeather()]">
+		<h6>Hey <strong>{{authentication.user.displayName}}</strong>, this thing'll tell you the weather for any zipcode unless it's sub-par, in which case it will show you cats.</h6>
+
+		<div ng-hide="loadingweather">
+			<h3 ng-hide="editzip">{{city}}, {{state}} (<a href="" ng-click="editzip=true">{{zip}}</a>)</h3>
+			<ng-form name="edit_zip" ng-show="editzip">
+				<div class="input-group zip_group">
+					<span class="input-group-addon input-sm">5-Digit Zip</span>
+					<input type="text" class="form-control input-sm" name="new_zip" ng-model="new_zip" required ng-pattern="/^\d{5}$/">
+					<span ng-disabled="edit_zip.$invalid" class="input-group-addon input-sm btn" ng-class="(edit_zip.$invalid)?'btn-default':'btn-primary white-text'" ng-click="updateZip()">Update</span>
+					<span class="input-group-addon btn btn-default input-sm" ng-click="editzip=false">X</span>						
+				</div>
+			</ng-form>
+			<div ng-show="showcats===true">
+				{{catmessage}}<br>
+
+				<img ng-src="{{cat}}" class="cat">
+			</div>
+			<div ng-show="showcats===false">
+
+
+				<h4 class="marg0">Current Temperature:</h4>
+				<h1 class="marg5 degrees"><strong>{{temp}}</strong></h1>
+				<h4 class="marg0">& {{condition_text}}</h4>
+
+				<img data-ng-src="{{icon}}" class="margtop15">
+			</div>
+		</div>
+		<div class="rot90">
+			<span class="em9 glyphicon glyphicon-th-large"></span> 
+			<span> Boards</span>   
+			<span class="badge boards_length">{{boards.length}}</span> 
+			<button class="btn btn-success btn-sm new_board_btn" ng-click="show_new_board()"><span class="glyphicon glyphicon-plus"></span></button>
+		</div>						
+	</div>	
+	<div class="fridge1-bot-content-right white_bg">
+		<div class="board_scrollbar">
+			<p class="marg7_0">	
+
+				<div ng-repeat="board in boards | orderBy : ['!starred','!trello_board','truncated']" class="board-anim" id="board_{{board.board}}">
+					<div class="pointer-cursor" kill-prop>
+						<div ng-show="edit_board !== board.board && delete_board !== board.board" ng-click="loadBoard(board.board)" class="board pos_rel" ng-class="{'board_active':board.board === cur_board}">
+							<span class="board_icon glyphicon glyphicon-th-list"></span>	
+							<span class="mid">{{board.name}}</span>												
+
+							<div class="board_decoration">
+
+								<span ng-show="!board.starred" class="mid glyphicon glyphicon-star-empty" ng-class="{'light-star':(board.board === cur_board)}" ng-click="toggle_star(board.board);$event.stopPropagation()" kill-prop></span>
+								<span ng-show="board.starred" class="mid glyphicon glyphicon-star" ng-click="toggle_star(board.board);$event.stopPropagation()" kill-prop></span>
+
+							  	<span ng-show="board.trello_board" class="badge" ng-class="(board.board === cur_board)?'badge_active':'badge_inactive'">Trello</span>
+							  	<span ng-show="board.truncated" class="badge" ng-class="(board.board === cur_board)?'badge_active':'badge_inactive'">Trnc</span>							  	
+							 </div>
+
+							<button ng-show="board.board === cur_board" ng-click="show_delete_board(); $event.stopPropagation();" class="btn btn-sm btn-danger board_delete"><span class="glyphicon glyphicon-trash"></span></button>
+
+
+						</div>
+						<div ng-if="delete_board === board.board" class="board board_active em9">
+							Wello users are hardcore so deletion is permanent.  Do you want to pansy out?<br>
+							<div class="margtop6">
+								<button class="btn btn-primary btn-sm w50" ng-click="cancel_delete_board()" >..Yeah.</button><button class="btn btn-danger btn-sm w50" ng-click="delete_this_board()">Psh, No</button>
+							</div>
+						</div>					
+						<div ng-if="edit_board === board.board" class="board board_active">
+							<textarea class="form-control" rows="2" ng-model="$parent.$parent.edit_board_name" placeholder="Board Name" focusnow ng-enter="update_board_name()"></textarea>
+							<button class="btn btn-primary btn-sm w50" ng-click="cancel_edit_board_name()" >Cancel</button><button class="btn btn-success btn-sm w50" ng-click="update_board_name()">Update</button>
+						</div>
+					</div>
+
+				</div>
+				
+				<div class="pointer-cursor" kill-prop>
+					<div ng-show="show_newboard === false" class="margbot20 board-new" ng-click="show_new_board()">Add Board</div>
+					<div ng-if="show_newboard === true" class="margbot20 board">
+						<textarea class="form-control" rows="3" ng-model="$parent.new_board_name" placeholder="Board Name" focusnow ng-enter="create_new_board()"></textarea>
+						<button class="btn btn-primary btn-sm w50" ng-click="cancel_new_board()">Cancel</button><button class="btn btn-success btn-sm w50" ng-click="create_new_board()">Create</button>
+					</div>
+				</div>					
+			</p>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,103 @@
+	/* CSS File for Fridge Content Panels */
+
+	/* Fride 1 (Base) */
+
+	.fridge1-bot-content-left {
+		display: inline-block;
+		float: left;
+		width: 120px;
+		height: 500px;
+		background-color: #1F648D;
+		overflow: hidden;		
+	}
+
+	.fridge1-bot-content-mid {
+		display: inline-block;
+		float: left;
+		width: 450px;
+		height: 500px;
+		background-color: #fff;
+		padding: 0 15px;
+		padding-right: 75px;	
+		overflow: hidden;			
+	}
+
+	.fridge1-bot-content-right {
+		float: right;
+		width: 337px;
+		height: 500px;
+		background-color: #fff;
+		overflow: auto;
+		padding: 0;
+	}
+
+	.fridge1-top-content-bot {
+		width: 907px;
+		height: 410px;
+		margin: 0;
+		padding: 0;
+		float: right;
+		display: inline-block;
+		background-color: #1F648D;
+		position: relative;
+		overflow: hidden;			
+	}
+
+	.fridge1-top-sidebar {
+		width: 150px;
+		padding: 0 10px;
+		margin: 0;
+		text-align: left;
+		float: left;
+		background-color: #1E4A74;			
+		height: 410px;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.narrower-fridge1-top {
+		width: 757px;
+		height: 410px;
+		margin: 0;
+		padding: 0;
+		float: right;
+		display: inline-block;
+		background-color: #1F648D;
+		position: relative;
+		overflow: hidden;			
+	}	
+
+	.fridge1-top-content-top {
+		width: 907px;
+		height: 40px;
+		text-align: left;
+		background-color: #1E4A74;	
+	}
+
+	.fridge1_status {
+		text-align: left;
+		padding-left: 155px;
+		padding-top: 2px;
+		font-size: 1.4em;
+		font-family: "Lucida Console", "Monaco", "monospace";
+	}
+
+	.fridge1_message {
+		color: #3E7AD4;
+		text-shadow: 0 0 0.7em #48F;
+	}
+
+	.fridge1_disaster {
+		color: #C45A3E;
+		text-shadow: 0 0 0.7em #E64;
+	}
+
+	.fridge1_success {
+		color: #3EC45A;
+		text-shadow: 0 0 0.7em #4E6;
+	}	
+
+	.fridge1_achievement {
+		color: #C4C45A;
+		text-shadow: 0 0 0.7em #EE6, 0 0 0.9em #EE6;
+	}	

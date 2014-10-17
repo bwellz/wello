@@ -1,0 +1,432 @@
+<div class="panel1-top-mid wello_bg pos_rel" ng-controller="FridgeWelloController" wello-keys>
+
+	<div class="fridge1-top-content-top">
+		<img src="modules/core/img/wello_white.png" height="20px" class="wello_title">
+		<span class="input-group input-group-sm filter_text" kill-prop>
+			<span class="input-group-addon filter_text_label">Filter</span>
+			<input type="text" class="form-control h24p" placeholder="Filter Text" ng-model="filterText" ng-change="filter_anim_start()">
+		</span>	  
+			
+		<span class="input-group input-group-sm filter_labels" ng-mouseleave="label_hover=-1">
+			<span ng-mouseover="label_hover=10" class="input-group-addon filter_labels_label">Labels</span>					
+			<span ng-repeat="label in [0,1,2,3,4,5]" class="input-group-addon btn lab-{{$index}} filter_label" ng-mouseover="$parent.label_hover=$index;$event.stopPropagation();" ng-class="{'lab-{{$index}}-hover': label_hover === $index}" ng-click="toggle_filter_lab($index)" kill-prop>
+				<span ng-show="filter_labels[$index]" class="glyphicon glyphicon-ok zero white"></span>
+			</span>		
+			<span ng-mouseover="label_hover=10" type="text" class="input-group-addon btn btn-info filter_label_toggle" ng-click="toggle_filter_any();$event.stopPropagation()" kill-prop>
+				<span ng-if="filterAny">ANY</span>
+				<span ng-if="!filterAny">ALL</span>				
+			</span> 								 
+			<span ng-mouseover="label_hover=10" type="text" class="input-group-addon btn btn-default filter_label_show_edit" ng-click="show_edit_label();$event.stopPropagation()" ng-disabled="board_data.lists_locked" kill-prop>
+				<span ng-show="!board_data.lists_locked">Edit</span>
+				<span ng-show="board_data.lists_locked" class="glyphicon glyphicon-lock"></span>	
+			</span> 
+			<span ng-show="filterTextActive.length > 0 || filtering_labels" class="filtering">
+				<span class="glyphicon glyphicon-filter"></span> Filter&nbsp; 
+				<button type="button" class="btn btn-danger btn-sm filter_cancel" ng-click="cancel_filter()">
+					<span class="glyphicon glyphicon-remove"></span>
+				</button>
+			</span>
+
+			<div ng-if="label_hover >= 0 && !edit_label" class="label-anim filter_labels_show" ng-mousedown="$event.stopPropagation()">
+				<div ng-repeat="label in board_data.label_names track by $index" ng-click="toggle_filter_lab($index)" ng-mouseover="$parent.$parent.label_hover=$index;$event.stopPropagation()" class="filter_label_space">
+					<div class="pos_rel">
+						<span ng-show="filter_labels[$index]" class="lab_arrow lab_arrow_pos glyphicon glyphicon-ok"></span>
+						<span class="lab-{{$index}} lab_menu" ng-class="{'lab_highlight': filter_labels[$index],'lab-{{$index}}-hover': label_hover === $index}">{{label}}</span>
+						<span ng-show="filter_labels[$index]" class="lab_any mid w35p">
+							<span ng-if="filterAny">OR</span>
+							<span ng-if="!filterAny">AND</span>	
+						</span>
+					</div>
+				</div>																					
+			</div>	
+			<div ng-if="edit_label" class="edit-anim labels_edit" kill-prop>
+				<div ng-repeat="label in edit_label_names track by $index" class="tbpad2">
+					<span class="input-group full_width" ng-mouseover="$parent.$parent.label_hover=$index;$event.stopPropagation()">
+						<span class="input-group-addon lab-{{$index}} w20p" ng-click="toggle_filter_lab($index)" ng-class="{'lab-{{$index}}-hover': $parent.label_hover === $index}"><span ng-show="filter_labels[$index]" class="glyphicon glyphicon-ok white"></span></span>
+						<input type="text" class="form-control" focusnow placeholder="Label Name" ng-model="edit_label_names[$index]" ng-enter="commit_edit_label()">	
+					</span>
+				</div>		
+				<div class="tbmarg2">																		
+					<button class="btn btn-primary btn-sm w50" ng-click="cancel_edit_label()" >Cancel</button><button class="btn btn-success btn-sm w50" ng-click="commit_edit_label()">Update</button>		
+				</div>
+			</div>		
+			<div class="cb"></div>	  
+		</span>
+
+        <button class="btn btn-primary btn-sm fun_btn1" ng-click="party_time()">
+        	<img src="/modules/core/img/party.png">
+        </button>
+        <button class="btn btn-primary btn-sm fun_btn2" ng-click="wello_snake_start()">
+        	<img src="/modules/core/img/snake.png">
+        </button>
+        <button class="btn btn-primary btn-sm fun_btn2" ng-click="wello_cardbreaker_start()">
+        	<img src="/modules/core/img/cardbreaker.png" width="24px">
+        </button>        
+        <button class="btn btn-primary btn-sm fun_btn1" ng-click="munchkin_snack()">
+        	<img src="/modules/core/img/snack.png">
+        </button>        
+
+	</div>
+	<div class="cb"></div>
+
+	<span ng-if="custom_board === 3" class="fridge1-top-sidebar">
+		Due to revolutionary advances in tofu, your Wello fridge is able to 3D-print almost any food you want.  Simply select what you want below and hit Print!
+
+		<div class="food_panel">
+			<b>Food Category</b><br>
+			<select class="form-control input-sm" data-ng-options="o.name for o in food_categories" ng-change="food_category_select()" data-ng-model="$parent.food_category"></select>
+
+			<b>Food</b><br>
+			<select ng-disabled="food_category.id === 0" class="form-control input-sm" data-ng-options="o.name for o in food_categories[food_category.id].food" data-ng-model="$parent.select_food"></select>
+
+			<button type="button" ng-disabled="food_category.id === 0 || select_food.id === -1" class="btn margtop10" ng-class="(food_category.id === 0 || select_food.id === -1)?'btn-default':'btn-success'" ng-click="food_submit()"><b>3D Print</b></button>
+
+			<button type="button" class="btn btn-primary margtop20" ng-click="food_submit(ice_id)">Make Ice</button>
+		</div>
+
+	</span>
+
+	<span class="fridge1-top-content-bot" ng-class="{'narrower-fridge1-top':custom_board===3}">
+		
+		<!-- Card Breaker -->
+		<div ng-show="show_cardbreaker === true && board_loaded && !cardbreaker_cloak" class="top_panel_dimension">
+			<div  ng-class="{'nib-panel-anim':show_cardbreaker}">
+			
+				<div class="card_breaker_paddle_panel" ng-mousemove="movepaddle($event);$event.stopPropagation()">
+				</div>
+
+				<img class="munchkin_spin munchkin_spin_mixin" src="modules/core/img/munchkin_head.png" ng-style="{'left':(ball_x)+'px','top':(ball_y)+'px'}">
+
+				<img ng-repeat="food in dropping_food" ng-src="{{food.image}}" ng-style="{'left':(food.left)+'px','top':(food.top)+'px'}" class="cardbreaker_food">				
+	
+				<img ng-repeat="laser in lasers" src="modules/core/img/recipes/cokefloat.png" ng-style="{'left':(laser.left)+'px','top':(laser.top)+'px'}" class="cardbreaker_laser">	
+
+				<div class="cardbreaker_paddle" ng-style="{'left':paddle_x+'px','width':paddle_size+'px'}">
+					WELLO
+				</div>
+
+				<div ng-repeat="list in cb_level" class="cardbreaker_list" ng-style="{'left':(5+$index*180)+'px'}">
+					<div class="rel_pos">
+						<div ng-repeat="card in list" ng-if="card.labels > 0" class="cardbreaker_card" ng-style="{'top':card.top+'px'}">
+							<div class="lab_tray2">
+								<div ng-repeat="label in getLabelArr(card.labels) track by $index" class="lab lab-{{$index}}"></div>
+								<div class="cb"></div>
+							</div>
+							{{card.name}}
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Wello Snake -->
+		<div ng-show="show_nibbles === true && board_loaded && !nibbles_cloak" class="top_panel_dimension">
+			<div  ng-class="{'nib-panel-anim':show_nibbles}">
+			<div class="nibs-anim nibs_mixin" ng-repeat="nibs in wello_snake" ng-style="{'left':(2+nibs.x*10)+'px','top':(nibs.y*10)+'px'}"></div>
+			<img ng-style="{'border':'4px solid '+snake_cat_color,'left':(cat_x*10)+'px','top':(cat_y*10)+'px'}" class="snake_cat" ng-src="{{snake_cat}}" width="240" height="240">			
+			<div class="nib-candy nib_candy_mixin" ng-style="{'left':(candy_x*10)+'px','top':(candy_y*10)+'px'}"></div>
+			<div class="nib_list nib_list_mixin" ng-style="{'left':(list_x*10)+'px','top':(list_y*10)+'px'}" sv-root sv-on-sort="element_moved($indexFrom, $partTo, $indexTo)" sv-on-start="party_over();element_move_start($part)">
+				<div class="list_head"><span class="em9 glyphicon glyphicon-file"></span> Wello Snake</div>
+					<div sv-part="board_data.lists[0].cards">
+					
+					<div ng-mouseup="open($event)">
+						<div class="card" ng-class="(is_party_time)?'party-animation':((is_filter_time)?'filter-animation':'list-animation')" ng-repeat="card in board_data.lists[0].cards" sv-element ng-mousedown="mousedown($event,card,0,$index)">
+							<div class="lab_tray">
+								<div ng-repeat="label in card.labels track by $index" ng-if="label" class="lab lab-{{$index}}"></div>
+								<div class="cb"></div>
+							</div>
+							<div ng-if="card.template === undefined">{{ card.name }}</div>
+							<div ng-if="card.template === 'cur_score'">Score: {{snake_score}}</div>	
+							<div ng-if="card.template === 'top_score'">Top Score: {{snake_top_score}}</div>
+							<div sv-helper>
+								<div class="card card_rot ddd">
+									<div class="lab_tray">
+										<div ng-repeat="label in card.labels track by $index" ng-if="label" class="lab lab-{{$index}}"></div>
+										<div class="cb"></div>
+									</div>
+									<div ng-if="card.template === undefined">{{ card.name }}</div>
+									<div ng-if="card.template === 'cur_score'">Score: {{snake_score}}</div>	
+									<div ng-if="card.template === 'top_score'">Top Score: {{snake_top_score}}</div>
+								</div>
+							</div>
+							<div sv-placeholder class="card_placeholder">					
+								<div ng-if="card.template === undefined">{{ card.name }}</div>
+								<div ng-if="card.template === 'cur_score'">Score: {{snake_score}}</div>	
+								<div ng-if="card.template === 'top_score'">Top Score: {{snake_top_score}}</div>
+							</div>
+						</div>
+					</div>	
+				</div>		
+			</div>
+			</div>
+		</div>
+
+		<!-- Locked Board -->
+		<div ng-if="board_data.lists_locked && board_loaded && show_cardbreaker === false && !cardbreaker_cloak && show_nibbles === false && !nibbles_cloak" ng-model="board_data.lists" class="lists lists-anim" ng-style="{'width':(new_list_pos+10)+'px'}" sv-root sv-on-sort="element_moved($indexFrom, $partTo, $indexTo)" sv-on-start="party_over();card_message();element_move_start($part)">
+
+			<div class="list margleft10" ng-repeat="list in board_data.lists">
+				<div class="list_head list_head_mixin">
+					<span class="list_lock_icon glyphicon glyphicon-lock"></span> 
+					<span class="badge list_card_count"> {{ list.cards.length }}</span>
+					<span class="list_name"> {{ list.name }} </span>
+				</div>
+				<div class="scrollbar-dynamic">
+					<div sv-part="list.cards">
+						<div ng-mouseup="open($event)">
+							<div class="card" ng-class="(is_party_time)?'party-animation':((is_filter_time)?'filter-animation':'list-animation')" ng-repeat="card in list.cards" ng-mousedown="mousedown($event,card,$parent.$parent.$index,$index)"
+							ng-if="card.filtered && (card.food_ref === undefined || food[card.food_ref].count > 0)" sv-element>
+								<div class="lab_tray">
+									<div ng-repeat="label in card.labels track by $index" ng-if="label" class="lab lab-{{$index}}"></div>	
+									<div class="cb"></div>
+								</div>
+								<span ng-if="card.food_ref" class="badge">{{food[card.food_ref].count}}</span>
+								<span ng-if="card.servings === -1" class="badge">0</span>
+								<span ng-if="card.servings >= 0" class="badge">{{card.servings}}</span>
+								<span class="card_note glyphicon glyphicon-book" ng-show="card.des.length > 0"></span><span class="f0f" ng-if="custom_board === 6 && $parent.$parent.$index === 4"><b>{{achievements[card.achievement_ref].name}}:</b></span>	{{ card.name }}
+								<div ng-show="card.image.length > 0" class="card_image">
+									<img class="marg5" width="146x" ng-src="{{card.image}}" draggable="false">
+
+								</div>
+								<div ng-if="custom_board === 3">
+									<button class="card_special_btn btn-sm btn btn-success" ng-mouseup="$event.stopPropagation()" ng-mousedown="food_submit(card.food_ref);$event.stopPropagation()"><b>Create More!</b></button>																	
+								</div>	
+								<div ng-if="custom_board === 4">
+									<button ng-if="card.servings > 0" class="card_special_btn btn-sm btn btn-success" ng-mouseup="$event.stopPropagation()" ng-mousedown="prepare_food(card.recipe_ref);$event.stopPropagation()"><b>Prepare Now!</b></button>
+									<div  ng-mouseup="$event.stopPropagation()" ng-mousedown="$event.stopPropagation()">
+										<button ng-disabled="true" ng-if="card.servings === 0" class="partial_ingredients btn-sm btn btn-info"><b>Partial Ingredients</b></button>
+
+										<button ng-disabled="true" ng-if="card.servings === -1" class="no_ingredients btn-sm btn btn-default"><b>No Ingredients</b></button>
+									</div>																		
+								</div>	
+																								
+								<div sv-helper>
+									<div class="card card_rot">
+										<div class="lab_tray">
+											<!-- check into potential dirty-checking here -->
+											<div ng-repeat="label in card.labels track by $index" ng-if="label" class="lab lab-{{$index}}"></div>
+											<div class="cb"></div>
+										</div>
+										<span ng-show="card.des.length > 0" class="card_note glyphicon glyphicon-book"></span> {{card.name}} <div ng-show="card.image.length > 0" class="card_image"><img width="156px" ng-src="{{card.image}}" draggable="false"></div>
+									</div>
+								</div>
+								<div sv-placeholder class="card_placeholder">						
+									<span ng-if="card.name.length <= 80">{{card.name}}</span>
+									<span ng-if="card.name.length > 80">{{card.name.substr(0,80)}}...</span>
+								</div>
+							</div>
+						</div>	
+					</div>	
+				</div>
+				<div class="list_foot default-cursor" ng-if="board_data.cards_locked">
+					<div class="em8"><span class="glyphicon glyphicon-lock"></span> Cards Locked</div>
+				</div>					
+
+				<div class="list_foot default-cursor" ng-if="!board_data.cards_locked">
+					<div ng-show="!list.showing_add_card"><a href="" ng-click="show_add_card($index,list)" kill-prop>Add Card</a></div>	
+					<div ng-if="list.showing_add_card" class="list_add_card" kill-prop>
+		
+						<textarea class="form-control em9 weight_normal" rows="2" ng-model="$parent.$parent.$parent.$parent.new_card_name" placeholder="Card Name" focusnow ng-enter="commit_card_add()"></textarea>
+						<button class="btn btn-primary btn-sm card_commit" ng-click="hide_add_card()" >Cancel</button><button class="btn btn-success btn-sm card_commit" ng-click="commit_card_add()">Create</button>
+					</div>
+				</div>	
+			</div>
+		</div>
+
+		<!-- Normal Board -->
+		<div ng-if="!board_data.lists_locked && show_nibbles === false && show_cardbreaker === false && !cardbreaker_cloak &&board_loaded && !nibbles_cloak"  ui-sortable="sortableOptions" ng-model="board_data.lists" class="lists lists-anim" ng-style="{'width':(new_list_pos+210)+'px'}" sv-root sv-on-sort="element_moved($indexFrom, $partTo, $indexTo)" sv-on-start="party_over();card_message();element_move_start($part)">
+
+			<div class="list margleft10" ng-repeat="list in board_data.lists">
+				<div class="list_head list_head_mixin_slide">
+					<div ng-if="!list.showing_edit_list">
+						<span class="list_lock_icon glyphicon glyphicon-file"></span> 
+						<span class="badge list_card_count"> {{ list.cards.length }}</span>
+						<span class="list_edit" ng-click="show_edit_list($index,list)"> {{ list.name }}</span>
+					</div>
+					<div ng-if="list.showing_edit_list" class="list_control list_edit_style" kill-prop>
+						<textarea class="form-control em9 weight_normal" rows="2" ng-model="$parent.$parent.$parent.edit_list_name" placeholder="Card Name" focusnow ng-enter="commit_list_name()"></textarea>
+						<button class="btn btn-primary btn-sm card_commit" ng-click="hide_edit_list()" >Cancel</button><button class="btn btn-success btn-sm card_commit" ng-click="commit_list_name()">Update</button>
+					</div>					
+				</div>				
+				<div class="scrollbar-dynamic">
+					<div sv-part="list.cards">
+						<div ng-mouseup="open($event)">
+							<div class="card" ng-class="(is_party_time)?'party-animation':((is_filter_time)?'filter-animation':'list-animation')" ng-repeat="card in list.cards" ng-mousedown="mousedown($event,card,$parent.$parent.$index,$index)"
+							ng-if="card.filtered" sv-element>
+								<div class="lab_tray">
+									<div ng-repeat="label in card.labels track by $index" ng-if="label" class="lab lab-{{$index}}"></div>	
+									<div class="cb"></div>
+								</div>
+								<span class="card_note glyphicon glyphicon-book" ng-show="card.des.length > 0"></span> {{ card.name }} <div ng-show="card.image.length > 0" class="card_image"><img class="marg5" width="146px" ng-src="{{card.image}}" draggable="false"></div>
+								<div sv-helper id="{{card.uid}}">
+									<div class="card card_rot">
+										<div class="lab_tray">
+											<!-- dirty-checking ='( -->
+											<div ng-repeat="label in card.labels track by $index" ng-if="label" class="lab lab-{{$index}}"></div>
+											<div class="cb"></div>
+										</div>
+										<span ng-show="card.des.length > 0" class="card_note glyphicon glyphicon-book"></span> {{card.name}} <div ng-show="card.image.length > 0" class="card_image"><img width="156px" ng-src="{{card.image}}" draggable="false"></div>
+									</div>
+								</div>
+								<div sv-placeholder class="card_placeholder">							
+									<span ng-if="card.name.length <= 80">{{card.name}}</span>
+									<span ng-if="card.name.length > 80">{{card.name.substr(0,80)}}...</span>
+								</div>
+							</div>
+						</div>	
+					</div>	
+				</div>
+				<div class="list_foot">
+					<div ng-if="board_data.cards_locked">
+						<div class="em8"><span class="glyphicon glyphicon-lock"></span> Cards Locked</div>
+					</div>						
+					<div ng-if="!board_data.cards_locked">
+						<div ng-show="!list.showing_add_card && !list.showing_delete_list">
+							<a href="" ng-click="show_add_card($index,list)" kill-prop>Add Card</a> 
+							<a href="" class="pull-right" ng-click="show_delete_list($index,list)"><span class="glyphicon glyphicon-trash"></span></a>
+							<a href="" class="pull-right margright5" ng-click="show_edit_list($index,list)"><span class="glyphicon glyphicon-pencil"></span></a>						
+						</div>	
+						<div ng-if="list.showing_add_card" class="list_control list_control_add" kill-prop>
+			
+							<textarea class="form-control" id="add_card_control" class="em9 weight_normal" rows="2" ng-model="$parent.$parent.$parent.$parent.new_card_name" placeholder="Card Name" focusnow ng-enter="commit_card_add()"></textarea>
+							<button class="btn btn-primary btn-sm card_commit" ng-click="hide_add_card()" >Cancel</button><button class="btn btn-success btn-sm card_commit" ng-click="commit_card_add()">Create</button>
+						</div>
+						<div ng-if="list.showing_delete_list" class="list_control list_control_delete" kill-prop>
+							<div class="margbot5">If you delete this LIST, you will never see any of the {{list.cards.length}} cards ever again.  Good riddance?</div>
+							<button class="btn btn-primary btn-sm card_commit" ng-click="hide_delete_list()" >My cards!</button><button class="btn btn-danger btn-sm card_commit" ng-click="commit_list_delete()">Dumpster!</button>
+						</div>						
+					</div>
+				</div>	
+			</div>
+			<div  ng-if="!board_data.lists_locked && board_loaded" class="lists-anim list list_new" id="list_adder" ng-style="{'left':(new_list_pos)+'px'}">
+				<div class="list_head list_head_mixin2">
+					<div ng-if="!showing_add_list" ng-click="show_add_list()" class="show_new_list">
+						<span class="em8 glyphicon glyphicon-plus"></span> 
+						<span class="pointer-cursor weight_normal em9">Add New List</span>
+					</div>
+					<div ng-if="showing_add_list" class="pad6" kill-prop>
+						<textarea class="form-control em9 weight_normal" rows="2" ng-model="$parent.$parent.$parent.new_list_name" placeholder="List Name" focusnow ng-enter="commit_list_add()"></textarea>
+						<button class="btn btn-primary btn-sm card_commit" ng-click="hide_add_list()" >Cancel</button><button class="btn btn-success btn-sm card_commit" ng-click="commit_list_add()">Create</button>
+					</div>				
+				</div>
+			</div>
+		</div>
+
+
+	</span>
+	<div class="cb"></div>
+
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-body" style="text-align: left; color: #464;">
+            
+			<div style="font-size: 1.3em; font-weight: bold">	
+				<div style="float: right; margin-left: 4px;"><button type="button" class="btn btn-danger btn-sm" style="padding: 2px 6px" ng-click="show_delete_dialog()" ng-if="!card_locked"><span class="glyphicon glyphicon-trash"></span></button> <button type="button" class="btn btn-primary btn-sm" style="padding: 2px 6px" ng-click="cancel()"><span class="glyphicon glyphicon-remove"></span></button></div>	
+				<div ng-class="(card_locked)?'card_name_locked':'card_name'" ng-click="show_edit_name()">			
+					
+					<div ng-show="!show_name"><span class="glyphicon" ng-class="(card_locked)?'glyphicon-lock':'glyphicon-credit-card'" style="font-weight: normal; font-size: 0.9em"></span> <span ng-if="custom_board === 6 && achievement.unlocked"><b>{{achievement.name}} (Unlocked):</b></span> {{card.name}} <span ng-show="!card_locked"> (<a>Edit</a>) </span>
+
+						<span ng-if="custom_board === 3" style="margin-top: -4px">
+							<span class="badge">{{food[card.food_ref].count}}</span>
+							<button type="button" class="btn btn-success btn-sm" style="padding: 2px 6px" ng-click="create_food(card.food_ref)">Create More!</button>
+						</span>
+
+						<span ng-if="custom_board === 4" style="margin-top: -4px">
+							<span class="badge" ng-if="card.servings <= 0">0</span>
+							<span class="badge has_ingredient_bg" ng-if="card.servings > 0">{{card.servings}}</span>
+							<button type="button" class="btn btn-success btn-sm" style="padding: 2px 6px" ng-if="card.servings > 0" ng-click="prepare_recipe(card.recipe_ref)">Prepare Now!</button>
+							<button type="button" ng-disabled="true" class="btn btn-default btn-sm" style="padding: 2px 6px" ng-if="card.servings <= 0">Missing Ingredients</button>							
+						</span>
+
+					</div>
+				</div>
+				<div ng-if="show_name">
+					<div style="text-align: left; font-size: 1.1em; font-weight: bold">	
+						<span class="glyphicon glyphicon-credit-card" style="font-weight: normal; font-size: 0.9em"></span> Edit Card Name 	
+					</div>			
+					<textarea style="margin-top: 10px" class="form-control" rows="2" ng-model="$parent.$parent.edit_name" placeholder="Card Name" focusnow ng-enter="commit_name()"></textarea>
+					<button class="btn btn-primary btn-sm" style="width: 50%" ng-click="hide_edit_name()" >Cancel</button><button class="btn btn-success btn-sm" style="width: 50%" ng-click="commit_name()">Update</button>
+				</div>
+				<div ng-if="show_delete" style="width: 70%; margin-left: 15%; margin-top: 15px; margin-bottom: 10px">
+					<div style="text-align: center; font-size: 0.7em; font-weight: bold; margin-bottom: 5px">	
+						Do you REALLY want to delete this card forever?<br>Wello wants you to. Databases don't pay for themselves.
+					</div>			
+					<button class="btn btn-primary btn-sm" style="width: 50%" ng-click="hide_delete_dialog()" >I'm too sentimental, nevermind.</button><button class="btn btn-danger btn-sm" style="width: 50%" ng-click="commit_delete()">Definitely, garbage time!</button>
+				</div>				
+			</div>
+			<br>
+			<div style="width: 260px; vertical-align: middle; display: inline-block; float: left">
+				<div ng-if="custom_board === 4">
+					<div style="font-size: 1.1em;" class="card_name">
+						<span class="glyphicon glyphicon-list-alt" style="font-weight: normal; font-size: 0.9em"></span> Preparation Instructions
+						<div style="margin: 3px 0 0 3px">
+							<div style="font-size: 0.8em; font-weight: normal; word-wrap: break-word;">Click the "Prepare Now!" Button once you have the proper ingredients.  Your Wello Fridge will take care of the rest.</div>
+						</div>
+					</div>					
+				</div>
+				<div ng-if="custom_board !== 4 && (card.des.length < 100 || card.image.length === 0)">
+					<div style="font-size: 1.1em;" ng-class="(card_locked)?'card_name_locked':'card_name'" ng-click="show_edit_des()">
+						<span class="glyphicon" ng-class="(card_locked)?'glyphicon-lock':'glyphicon-book'" style="font-weight: normal; font-size: 0.9em"></span> Description <span ng-show="!card_locked"> (<a>Edit</a>) </span>
+						<div ng-show="!show_des" style="margin: 3px 0 0 3px">
+							<div ng-show="card.des.length === 0" style="font-size: 0.9em; font-weight: normal"><i>There is no description for this card</i></div>
+							<div ng-show="card.des.length > 0" style="font-size: 0.8em; font-weight: normal; word-wrap: break-word;	">{{card.des}}</div>
+						</div>
+					</div>
+					<div ng-if="show_des" style="margin-top: 5px">
+						<textarea class="form-control" rows="7" ng-model="$parent.$parent.$parent.edit_des" placeholder="Card Description" focusnow ng-enter="commit_des()"></textarea>
+						<button class="btn btn-primary btn-sm" style="width: 50%" ng-click="hide_edit_des()" >Cancel</button><button class="btn btn-success btn-sm" style="width: 50%" ng-click="commit_des()">Update</button>
+					</div>	
+				</div>
+				<div ng-show="card.image.length > 0" class="image_holder" perfect-scrollbar><img ng-src="{{card.image}}" width="280px" draggable="false" ng-click="$event.stopPropagation()"></div>																				
+			</div>		
+
+			<div style="width: 265px; vertical-align: middle; display: inline-block; float: right">
+				<div ng-if="card.des.length >= 100 && card.image.length > 0" style="margin-bottom: 15px">
+					<div style="font-size: 1.1em;" ng-class="(card_locked)?'card_name_locked':'card_name'" ng-click="show_edit_des()">
+						<span class="glyphicon" ng-class="(card_locked)?'glyphicon-lock':'glyphicon-book'" style="font-weight: normal; font-size: 0.9em"></span> Description <span ng-show="!card_locked"> (<a>Edit</a>) </span>
+						<div ng-show="!show_des" style="margin: 3px 0 0 3px">
+							<div ng-show="card.des.length === 0" style="font-size: 0.9em; font-weight: normal"><i>There is no description for this card</i></div>
+							<div ng-show="card.des.length > 0" style="font-size: 0.8em; font-weight: normal; word-wrap: break-word;	">{{card.des}}</div>
+						</div>
+					</div>
+					<div ng-if="show_des" style="margin-top: 5px">
+						<textarea class="form-control" rows="7" ng-model="$parent.$parent.$parent.edit_des" placeholder="Card Description" focusnow ng-enter="commit_des()"></textarea>
+						<button class="btn btn-primary btn-sm" style="width: 50%" ng-click="hide_edit_des()" >Cancel</button><button class="btn btn-success btn-sm" style="width: 50%" ng-click="commit_des()">Update</button>
+					</div>	
+				</div>			
+				<div style="font-size: 1.1em; font-weight: bold; margin-bottom: 3px">
+					<span class="glyphicon" ng-class="(labels_locked)?'glyphicon-lock':'glyphicon-list-alt'" style="font-weight: normal; font-size: 0.9em"></span> <span ng-show="!labels_locked"> Add / Remove </span>Card Labels ({{num_labels()}})
+				</div>
+				<div ng-repeat="label in label_names track by $index" ng-if="!labels_locked || card.labels[$index]" ng-click="toggle_label($index)" style="padding: 3px 0;" ng-class="(labels_locked)?'default-cursor':'pointer-cursor'">
+					<div style="position: relative">
+	
+						<span style="color: #dfd" class="lab-{{$index}} lab_card_menu" ng-class="{'lab_card_highlight': !card.labels[$index],'lab-{{$index}}-hover': label_hover === $index}">					
+							<span style="width: 20px; color: #eee" ng-show="card.labels[$index]" class="lab_arrow glyphicon glyphicon-ok"></span>
+							{{label}}
+						</span>
+					</div>
+				</div>	
+				<div ng-if="card_locked && num_labels() === 0">There are no labels for this card</div>
+				<div ng-if="custom_board === 4" style="margin-top: 15px">
+					<div style="font-size: 1.1em;" class="card_name">
+						<span class="glyphicon glyphicon-list-alt" style="font-weight: normal; font-size: 0.9em"></span> Ingredients
+						<div style="margin: 3px 0 0 3px">
+							<div style="font-size: 0.8em; font-weight: normal; word-wrap: break-word; margin-bottom: 3px">You may 3D-Print any of the ingredients that you are missing directly from this card.</div>
+							<div ng-repeat="food_req in recipe.food" ng-class="{'has_ingredient':(food[food_req.food].count > food_req.count)}" style="margin-top: 4px">
+								<span style=" margin-top: 4px;" class="glyphicon" ng-class="(food[food_req.food].count > food_req.count)?'glyphicon-check':'glyphicon-unchecked'"></span>
+								{{food[food_req.food].name}} x {{food_req.count}} 
+								<span class="badge" ng-class="{'has_ingredient_bg':(food[food_req.food].count > food_req.count)}">{{food[food_req.food].count}}</span> 
+
+								<button type="button" ng-click="create_food(food_req.food)" class="btn btn-success btn-sm" style="padding: 2px 6px">3D-Print</button>
+							</div>
+						</div>
+					</div>						
+				</div>																			
+			</div>
+			<div style="clear: both"></div>	
+        </div>
+        <div class="modal-footer" style="text-align: left; color: #686;">
+        	<small style="font-size: 0.8em"><i>Disclaimer: <b>WelloBeam</b> is a new and ABSOLUTELY SAFE technology that projects Wello cards directly from your Wello Fridge to several inches in front of your face.  Disorientation and dimming of surroundings are COMPLETELY NATURAL side-effects.  It requires a LOT of science and some of that science might be <b>"vaguely radioactive"</b> in nature.  Wello will NOT be held responsible for physical injuries resultant from misguided projection of Wello cards directly into your brain and is quite proud of the fact that it has only happened once.  By reading this text, you waive the right to sue Wello for any reason, including but not limited to gross copyright infringement.</i></small>
+        </div>
+    </script>
+
+</div>

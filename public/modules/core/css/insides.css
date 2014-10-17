@@ -1,0 +1,393 @@
+	/* CSS File for displaying the fridge doors, their animation, and the insde of the fridges */
+
+	.fridge1-freezer {
+		width: 1200px;
+		height: 533px;
+		padding: 20px;
+		background-image:url('/modules/core/img/fridges/fridge1_freezer_frame.png');
+		position: relative;		
+	}
+
+	.hide-door {
+		visibility: hidden;
+	}
+
+	/* FRIDGE 1 DOOR ONE */
+
+	/* Outside */
+	.fridge1-door {
+		position: absolute;
+		left: 0px;
+		width: 1200px;
+		height: 533px;
+		-webkit-transform: scaleX(1.0);
+		-moz-transform: scaleX(1.0);
+		transform: scaleX(1.0);				
+		top: 0;	
+	}
+	.fridge1-door-ng-enter {
+ 	 	-webkit-animation: door_open_sequence 2.0s;
+ 	 	-moz-animation: door_open_sequence 2.0s;
+ 	 	animation: door_open_sequence 2.0s; 	 	 	 	
+	}
+	@-webkit-keyframes door_open_sequence {
+	  0% { -webkit-transform: translate(0,0) scaleX(1.0); -webkit-animation-timing-function: cubic-bezier(0.595, -0.110, 0.660, 0.665); }
+	  85% { -webkit-transform: translate(600px,0) scaleX(0.0); -webkit-animation-timing-function: linear;  } 
+	  100% { -webkit-transform: translate(600px,0) scaleX(0.0); }  
+	}
+	@-moz-keyframes door_open_sequence {
+	  0% { -moz-transform: translate(0,0) scaleX(1.0); -moz-animation-timing-function: cubic-bezier(0.595, -0.110, 0.660, 0.665); }
+	  85% { -moz-transform: translate(600px,0) scaleX(0.0); -moz-animation-timing-function: linear;  } 
+	  100% { -moz-transform: translate(600px,0) scaleX(0.0); }  
+	}
+	@keyframes door_open_sequence {
+	  0% { transform: translate(0,0) scaleX(1.0); animation-timing-function: cubic-bezier(0.595, -0.110, 0.660, 0.665); }
+	  85% { transform: translate(600px,0) scaleX(0.0); animation-timing-function: linear;  } 
+	  100% { transform: translate(600px,0) scaleX(0.0); }  
+	}	
+
+	.fridge1-door-ng-leave {
+ 	 	-webkit-animation: door_close_sequence 2.0s linear;
+ 	 	-moz-animation: door_close_sequence 2.0s linear;
+ 	 	animation: door_close_sequence 2.0s linear; 	 	 	 	
+	}
+	@-webkit-keyframes door_close_sequence {
+	  0% { -webkit-transform: translate(600px,0) scaleX(0.0); -webkit-animation-timing-function: cubic-bezier(0.375, -0.600, 0.530, 0.325); } 
+	  33% { -webkit-transform: translate(600px,0) scaleX(0.0); -webkit-animation-timing-function: cubic-bezier(0.545, 0.885, 0.675, 1.020);  } 
+	  100% { -webkit-transform: translate(0,0) scaleX(1.0); }
+	}	
+	@-moz-keyframes door_close_sequence {
+	  0% { -moz-transform: translate(600px,0) scaleX(0.0); -moz-animation-timing-function: cubic-bezier(0.375, -0.600, 0.530, 0.325); } 
+	  33% { -moz-transform: translate(600px,0) scaleX(0.0); -moz-animation-timing-function: cubic-bezier(0.545, 0.885, 0.675, 1.020);  } 
+	  100% { -moz-transform: translate(0,0) scaleX(1.0); }
+	}	
+	@keyframes door_close_sequence {
+	  0% { transform: translate(600px,0) scaleX(0.0); animation-timing-function: cubic-bezier(0.375, -0.600, 0.530, 0.325); } 
+	  33% { transform: translate(600px,0) scaleX(0.0); animation-timing-function: cubic-bezier(0.545, 0.885, 0.675, 1.020);  } 
+	  100% { transform: translate(0,0) scaleX(1.0); }
+	}	
+
+	/* End Piece */
+	.fridge1-doorend {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		background-image:url('/modules/core/img/fridges/fridge1_freezer_frame.png');
+		border-radius: 5px;
+		width: 100px;
+		height: 533px;
+		cursor: move;
+		-webkit-transform: translate(1280px) scaleX(0.6);
+		-moz-transform: translate(1280px) scaleX(0.6);
+		transform: translate(1280px) scaleX(0.6);				
+	}
+	.fridge1-doorend.ng-enter {
+	 	-webkit-animation: doorend_open_sequence 2.0s;	
+	 	-moz-animation: doorend_open_sequence 2.0s;	
+	 	animation: doorend_open_sequence 2.0s;		 		 	 	 
+	}
+	@-webkit-keyframes doorend_open_sequence {	
+	  0% { -webkit-transform: translate(-40px,0) scaleX(0.0); -webkit-animation-timing-function: cubic-bezier(0.595, -0.110, 0.660, 0.665); }
+	  85% { -webkit-transform: translate(1100px,0) scaleX(1.0); -webkit-animation-timing-function: linear; } 
+	  100% { -webkit-transform: translate(1280px,0) scaleX(0.6); }	  
+	}	
+	@-moz-keyframes doorend_open_sequence {	
+	  0% { -moz-transform: translate(-40px,0) scaleX(0.0); -moz-animation-timing-function: cubic-bezier(0.595, -0.110, 0.660, 0.665); }
+	  85% { -moz-transform: translate(1100px,0) scaleX(1.0); -moz-animation-timing-function: linear; } 
+	  100% { -moz-transform: translate(1280px,0) scaleX(0.6); }	  
+	}	
+	@keyframes doorend_open_sequence {	
+	  0% { transform: translate(-40px,0) scaleX(0.0); animation-timing-function: cubic-bezier(0.595, -0.110, 0.660, 0.665); }
+	  85% { transform: translate(1100px,0) scaleX(1.0); animation-timing-function: linear; } 
+	  100% { transform: translate(1280px,0) scaleX(0.6); }	  
+	}	
+
+	.fridge1-doorend.ng-leave {
+	 	 -webkit-animation: doorend_close_sequence 2.0s;
+	 	 -moz-animation: doorend_close_sequence 2.0s;
+	 	 animation: doorend_close_sequence 2.0s;	 	 	 	 	
+	}
+	@-webkit-keyframes doorend_close_sequence {
+	  0% { -webkit-transform: translate(1280px,0) scaleX(0.6); -webkit-animation-timing-function: cubic-bezier(0.375, -0.600, 0.530, 0.325); }
+	  33% { -webkit-transform: translate(1100px,0) scaleX(1.0); -webkit-animation-timing-function: cubic-bezier(0.545, 0.885, 0.675, 1.020); }
+	  100% { -webkit-transform: translate(-40px,0) scaleX(0.0); }	  	  
+	}	
+	@-moz-keyframes doorend_close_sequence {
+	  0% { -moz-transform: translate(1280px,0) scaleX(0.6); -moz-animation-timing-function: cubic-bezier(0.375, -0.600, 0.530, 0.325); }
+	  33% { -moz-transform: translate(1100px,0) scaleX(1.0); -moz-animation-timing-function: cubic-bezier(0.545, 0.885, 0.675, 1.020); }
+	  100% { -moz-transform: translate(-40px,0) scaleX(0.0); }	  	  
+	}	
+	@keyframes doorend_close_sequence {
+	  0% { transform: translate(1280px,0) scaleX(0.6); animation-timing-function: cubic-bezier(0.375, -0.600, 0.530, 0.325); }
+	  33% { transform: translate(1100px,0) scaleX(1.0); animation-timing-function: cubic-bezier(0.545, 0.885, 0.675, 1.020); }
+	  100% { transform: translate(-40px,0) scaleX(0.0); }	  	  
+	}		
+
+	/* Inside */
+	.fridge1-doorinside {
+		border-top-left-radius: 30px;		
+		border-bottom-left-radius: 30px;			
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		background: #ccc;
+		width: 200px;
+		height: 533px;
+		border-top: 15px solid #999;
+		border-bottom: 15px solid #999;	
+		cursor: move;
+		-webkit-transform: translate(1100px,0) scaleX(1.0);
+		-moz-transform: translate(1100px,0) scaleX(1.0);
+		transform: translate(1100px,0) scaleX(1.0);						
+	}	
+	.fridge1-doorinside.ng-enter {
+ 	 	-webkit-animation: doorinside_open_sequence 2.0s;
+ 	 	-moz-animation: doorinside_open_sequence 2.0s;
+ 	 	animation: doorinside_open_sequence 2.0s; 	 	 	 	
+	}
+	@-webkit-keyframes doorinside_open_sequence {
+	  0% { -webkit-transform: translate(1000px,0) scaleX(0.0); -webkit-animation-timing-function: cubic-bezier(0.595, -0.110, 0.660, 0.665); }		
+	  85% { -webkit-transform: translate(1000px,0) scaleX(0.0); -webkit-animation-timing-function: linear; }	
+	  100% { -webkit-transform: translate(1100px,0) scaleX(1.0); }
+	}	
+	@-moz-keyframes doorinside_open_sequence {
+	  0% { -moz-transform: translate(1000px,0) scaleX(0.0); -moz-animation-timing-function: cubic-bezier(0.595, -0.110, 0.660, 0.665); }		
+	  85% { -moz-transform: translate(1000px,0) scaleX(0.0); -moz-animation-timing-function: linear; }	
+	  100% { -moz-transform: translate(1100px,0) scaleX(1.0); }
+	}	
+	@keyframes doorinside_open_sequence {
+	  0% { transform: translate(1000px,0) scaleX(0.0); animation-timing-function: cubic-bezier(0.595, -0.110, 0.660, 0.665); }		
+	  85% { transform: translate(1000px,0) scaleX(0.0); animation-timing-function: linear; }	
+	  100% { transform: translate(1100px,0) scaleX(1.0); }
+	}			
+	.fridge1-doorinside.ng-leave {
+ 	 	-webkit-animation: doorinside_close_sequence 2.0s linear;
+ 	 	-moz-animation: doorinside_close_sequence 2.0s linear;
+ 	 	animation: doorinside_close_sequence 2.0s linear; 	 	 	 	
+	}
+	@-webkit-keyframes doorinside_close_sequence {
+	  0% { -webkit-transform: translate(1100px,0) scaleX(1.0); -webkit-animation-timing-function: cubic-bezier(0.375, -0.600, 0.530, 0.325);  }
+	  33% { -webkit-transform: translate(1000px,0) scaleX(0.0); -webkit-animation-timing-function: cubic-bezier(0.545, 0.885, 0.675, 1.020); }
+	  100% { -webkit-transform: translate(1000px,0) scaleX(0.0); }
+	}
+	@-moz-keyframes doorinside_close_sequence {
+	  0% { -moz-transform: translate(1100px,0) scaleX(1.0); -moz-animation-timing-function: cubic-bezier(0.375, -0.600, 0.530, 0.325);  }
+	  33% { -moz-transform: translate(1000px,0) scaleX(0.0); -moz-animation-timing-function: cubic-bezier(0.545, 0.885, 0.675, 1.020); }
+	  100% { -moz-transform: translate(1000px,0) scaleX(0.0); }
+	}
+	@keyframes doorinside_close_sequence {
+	  0% { transform: translate(1100px,0) scaleX(1.0); animation-timing-function: cubic-bezier(0.375, -0.600, 0.530, 0.325);  }
+	  33% { transform: translate(1000px,0) scaleX(0.0); animation-timing-function: cubic-bezier(0.545, 0.885, 0.675, 1.020); }
+	  100% { transform: translate(1000px,0) scaleX(0.0); }
+	}		
+
+	.fridge1-fridge {
+		width: 1200px;
+		height: 1232px;
+		padding: 16px;
+		background-image:url('/modules/core/img/fridges/fridge1_freezer_frame.png');
+		position: relative;		
+	}
+
+	.fridge1-fridge-bg {
+		width: 1100px;
+		height: 1200px;
+		margin: 0px 40px;
+		background-size: 1100px 1232px;
+		background-image:url('/modules/core/img/fridges/fridge1_fridge.jpg');
+		position: relative;		
+	}
+
+	.fridge1-fridge-bg-on {
+		width: 1100px;
+		height: 1200px;
+		-webkit-animation: blink_lights 1.0s linear infinite;
+		-moz-animation: blink_lights 1.0s linear infinite;
+		animation: blink_lights 1.0s linear infinite;				
+		background-size: 502px 302px;
+		background-repeat: no-repeat;
+		background-image:url('/modules/core/img/fridges/fridge1_fridge_on.jpg');
+		position: absolute;	
+		left: 246px;
+		top: 78px;	
+	}
+
+	@-webkit-keyframes blink_lights {
+	    0%,100% { opacity: 0; }
+	    50% { opacity: 1; }
+	}
+	@-moz-keyframes blink_lights {
+	    0%,100% { opacity: 0; }
+	    50% { opacity: 1; }
+	}
+	@keyframes blink_lights {
+	    0%,100% { opacity: 0; }
+	    50% { opacity: 1; }
+	}		
+
+	/* FRIDGE 1 DOOR ONE */
+	
+	/* Outside */
+	.fridge1-door2 {
+		position: absolute;
+		left: 0px;
+		width: 1200px;
+		height: 1232px;
+		-webkit-transform: scaleX(1.0);
+		-moz-transform: scaleX(1.0);
+		transform: scaleX(1.0);				
+		top: 0;	
+	}
+	.fridge1-door2-ng-enter {
+ 	 	-webkit-animation: door2_open_sequence 2.0s;
+ 	 	-moz-animation: door2_open_sequence 2.0s;
+ 	 	animation: door2_open_sequence 2.0s; 	 	 	 	
+	}
+	@-webkit-keyframes door2_open_sequence {
+	  0% { -webkit-transform: translate(0,0) scaleX(1.0); -webkit-animation-timing-function: cubic-bezier(0.595, -0.110, 0.660, 0.665); }
+	  85% { -webkit-transform: translate(600px,0) scaleX(0.0); -webkit-animation-timing-function: linear;  } 
+	  100% { -webkit-transform: translate(600px,0) scaleX(0.0); }  
+	}
+	@-moz-keyframes door2_open_sequence {
+	  0% { -moz-transform: translate(0,0) scaleX(1.0); -moz-animation-timing-function: cubic-bezier(0.595, -0.110, 0.660, 0.665); }
+	  85% { -moz-transform: translate(600px,0) scaleX(0.0); -moz-animation-timing-function: linear;  } 
+	  100% { -moz-transform: translate(600px,0) scaleX(0.0); }  
+	}	
+	@keyframes door2_open_sequence {
+	  0% { transform: translate(0,0) scaleX(1.0); animation-timing-function: cubic-bezier(0.595, -0.110, 0.660, 0.665); }
+	  85% { transform: translate(600px,0) scaleX(0.0); animation-timing-function: linear;  } 
+	  100% { transform: translate(600px,0) scaleX(0.0); }  
+	}	
+	.fridge1-door2-ng-leave {
+ 	 	-webkit-animation: door2_close_sequence 2.0s linear;
+ 	 	-moz-animation: door2_close_sequence 2.0s linear;
+ 	 	animation: door2_close_sequence 2.0s linear; 	 	 	 	
+	}
+	@-webkit-keyframes door2_close_sequence {
+	  0% { -webkit-transform: translate(600px,0) scaleX(0.0); -webkit-animation-timing-function: cubic-bezier(0.375, -0.600, 0.530, 0.325); } 
+	  33% { -webkit-transform: translate(600px,0) scaleX(0.0); -webkit-animation-timing-function: cubic-bezier(0.545, 0.885, 0.675, 1.020);  } 
+	  100% { -webkit-transform: translate(0,0) scaleX(1.0); }
+	}	
+	@-moz-keyframes door2_close_sequence {
+	  0% { -moz-transform: translate(600px,0) scaleX(0.0); -moz-animation-timing-function: cubic-bezier(0.375, -0.600, 0.530, 0.325); } 
+	  33% { -moz-transform: translate(600px,0) scaleX(0.0); -moz-animation-timing-function: cubic-bezier(0.545, 0.885, 0.675, 1.020);  } 
+	  100% { -moz-transform: translate(0,0) scaleX(1.0); }
+	}	
+	@keyframes door2_close_sequence {
+	  0% { transform: translate(600px,0) scaleX(0.0); animation-timing-function: cubic-bezier(0.375, -0.600, 0.530, 0.325); } 
+	  33% { transform: translate(600px,0) scaleX(0.0); animation-timing-function: cubic-bezier(0.545, 0.885, 0.675, 1.020);  } 
+	  100% { transform: translate(0,0) scaleX(1.0); }
+	}		
+
+	/* End Piece */
+	.fridge1-doorend2 {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		background-image:url('/modules/core/img/fridges/fridge1_freezer_frame.png');
+		border-radius: 5px;
+		width: 100px;
+		height: 1232px;
+		cursor: move;
+		-webkit-transform: translate(1280px) scaleX(0.6);
+		-moz-transform: translate(1280px) scaleX(0.6);
+		transform: translate(1280px) scaleX(0.6);				
+	}
+	.fridge1-doorend2.ng-enter {
+	 	-webkit-animation: doorend_open_sequence2 2.0s;	
+	 	-moz-animation: doorend_open_sequence2 2.0s;	
+	 	animation: doorend_open_sequence2 2.0s;		 		 	 	 
+	}
+	@-webkit-keyframes doorend_open_sequence2 {	
+	  0% { -webkit-transform: translate(-40px,0) scaleX(0.0); -webkit-animation-timing-function: cubic-bezier(0.595, -0.110, 0.660, 0.665); }
+	  85% { -webkit-transform: translate(1100px,0) scaleX(1.0); -webkit-animation-timing-function: linear; } 
+	  100% { -webkit-transform: translate(1280px,0) scaleX(0.6); }	  
+	}	
+	@-moz-keyframes doorend_open_sequence2 {	
+	  0% { -moz-transform: translate(-40px,0) scaleX(0.0); -moz-animation-timing-function: cubic-bezier(0.595, -0.110, 0.660, 0.665); }
+	  85% { -moz-transform: translate(1100px,0) scaleX(1.0); -moz-animation-timing-function: linear; } 
+	  100% { -moz-transform: translate(1280px,0) scaleX(0.6); }	  
+	}	
+	@keyframes doorend_open_sequence2 {	
+	  0% { transform: translate(-40px,0) scaleX(0.0); animation-timing-function: cubic-bezier(0.595, -0.110, 0.660, 0.665); }
+	  85% { transform: translate(1100px,0) scaleX(1.0); animation-timing-function: linear; } 
+	  100% { transform: translate(1280px,0) scaleX(0.6); }	  
+	}			
+	.fridge1-doorend2.ng-leave {
+	 	 -webkit-animation: doorend_close_sequence2 2.0s;
+	 	 -moz-animation: doorend_close_sequence2 2.0s;
+	 	 animation: doorend_close_sequence2 2.0s;	 	 	 	 	
+	}
+	@-webkit-keyframes doorend_close_sequence2 {
+	  0% { -webkit-transform: translate(1280px,0) scaleX(0.6); -webkit-animation-timing-function: cubic-bezier(0.375, -0.600, 0.530, 0.325); }
+	  33% { -webkit-transform: translate(1100px,0) scaleX(1.0); -webkit-animation-timing-function: cubic-bezier(0.545, 0.885, 0.675, 1.020); }
+	  100% { -webkit-transform: translate(-40px,0) scaleX(0.0); }	  	  
+	}	
+	@-moz-keyframes doorend_close_sequence2 {
+	  0% { -moz-transform: translate(1280px,0) scaleX(0.6); -moz-animation-timing-function: cubic-bezier(0.375, -0.600, 0.530, 0.325); }
+	  33% { -moz-transform: translate(1100px,0) scaleX(1.0); -moz-animation-timing-function: cubic-bezier(0.545, 0.885, 0.675, 1.020); }
+	  100% { -moz-transform: translate(-40px,0) scaleX(0.0); }	  	  
+	}	
+	@keyframes doorend_close_sequence2 {
+	  0% { transform: translate(1280px,0) scaleX(0.6); animation-timing-function: cubic-bezier(0.375, -0.600, 0.530, 0.325); }
+	  33% { transform: translate(1100px,0) scaleX(1.0); animation-timing-function: cubic-bezier(0.545, 0.885, 0.675, 1.020); }
+	  100% { transform: translate(-40px,0) scaleX(0.0); }	  	  
+	}		
+
+	/* Inside */
+	.fridge1-doorinside2 {
+		position: absolute;
+		border-top-left-radius: 30px;		
+		border-bottom-left-radius: 30px;
+		border-top: 10px solid #bbb;
+		border-bottom: 10px solid #bbb;				
+		left: 0px;
+		top: 0px;
+		background: #ccc;
+		width: 200px;
+		height: 1232px;
+		cursor: move;
+		-webkit-transform: translate(1100px,0) scaleX(1.0);	
+		-moz-transform: translate(1100px,0) scaleX(1.0);
+		transform: translate(1100px,0) scaleX(1.0);					
+	}	
+	.fridge1-doorinside2.ng-enter {
+ 	 	-webkit-animation: doorinside_open_sequence 2.0s;
+ 	 	-moz-animation: doorinside_open_sequence 2.0s;
+ 	 	animation: doorinside_open_sequence 2.0s; 	 	 	 	
+	}
+	@-webkit-keyframes doorinside2_open_sequence {
+	  0% { -webkit-transform: translate(1000px,0) scaleX(0.0); -webkit-animation-timing-function: cubic-bezier(0.595, -0.110, 0.660, 0.665); }		
+	  85% { -webkit-transform: translate(1000px,0) scaleX(0.0); -webkit-animation-timing-function: linear; }	
+	  100% { -webkit-transform: translate(1100px,0) scaleX(1.0); }
+	}
+	@-moz-keyframes doorinside2_open_sequence {
+	  0% { -moz-transform: translate(1000px,0) scaleX(0.0); -moz-animation-timing-function: cubic-bezier(0.595, -0.110, 0.660, 0.665); }		
+	  85% { -moz-transform: translate(1000px,0) scaleX(0.0); -moz-animation-timing-function: linear; }	
+	  100% { -moz-transform: translate(1100px,0) scaleX(1.0); }
+	}moz
+	@keyframes doorinside2_open_sequence {
+	  0% { transform: translate(1000px,0) scaleX(0.0); animation-timing-function: cubic-bezier(0.595, -0.110, 0.660, 0.665); }		
+	  85% { transform: translate(1000px,0) scaleX(0.0); animation-timing-function: linear; }	
+	  100% { transform: translate(1100px,0) scaleX(1.0); }
+	}			
+	.fridge1-doorinside2.ng-leave {
+ 	 	-webkit-animation: doorinside2_close_sequence 2.0s linear;
+ 	 	-moz-animation: doorinside2_close_sequence 2.0s linear;
+ 	 	animation: doorinside2_close_sequence 2.0s linear; 	 	 	 	
+	}
+	@-webkit-keyframes doorinside2_close_sequence {
+	  0% { -webkit-transform: translate(1100px,0) scaleX(1.0); -webkit-animation-timing-function: cubic-bezier(0.375, -0.600, 0.530, 0.325);  }
+	  33% { -webkit-transform: translate(1000px,0) scaleX(0.0); -webkit-animation-timing-function: cubic-bezier(0.545, 0.885, 0.675, 1.020); }
+	  100% { -webkit-transform: translate(1000px,0) scaleX(0.0); }
+	}
+	@-moz-keyframes doorinside2_close_sequence {
+	  0% { -moz-transform: translate(1100px,0) scaleX(1.0); -moz-animation-timing-function: cubic-bezier(0.375, -0.600, 0.530, 0.325);  }
+	  33% { -moz-transform: translate(1000px,0) scaleX(0.0); -moz-animation-timing-function: cubic-bezier(0.545, 0.885, 0.675, 1.020); }
+	  100% { -moz-transform: translate(1000px,0) scaleX(0.0); }
+	}
+	@keyframes doorinside2_close_sequence {
+	  0% { transform: translate(1100px,0) scaleX(1.0); animation-timing-function: cubic-bezier(0.375, -0.600, 0.530, 0.325);  }
+	  33% { transform: translate(1000px,0) scaleX(0.0); animation-timing-function: cubic-bezier(0.545, 0.885, 0.675, 1.020); }
+	  100% { transform: translate(1000px,0) scaleX(0.0); }
+	}		

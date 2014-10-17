@@ -1,0 +1,125 @@
+<section data-ng-controller="HomeController">
+
+	<div class="mobile_home" ng-if="show_mobile">
+		<img src="modules/core/img/wello-fridge.png" width="90%" class="margtop20">
+		<h3>Home of the Wello Fridge and Brad's Resume<h3>
+		<h4 class="warning_yellow">You need a modern desktop browser to view this site as intended, but here's a mobile friendly resume: <a class="light_yellow" href="http://www.bradmw.com">www.bradmw.com</a></h4>
+		<h5>And here's what you're missing:</h5>
+		<img src="modules/core/img/screens/wello2.jpg" width="90%" class="screenshot_border">
+		<img src="modules/core/img/screens/wello1.jpg" width="90%" class="margbot10">
+		<img src="modules/core/img/screens/wello3.jpg" width="90%" class="screenshot_border">		
+		<div class="munchkin_rock" class="rel_topright">
+			<img src="modules/core/img/munchkin_welcome.png" width="90%">
+		</div>
+	</div>
+
+	<div class="margbot30" ng-if="!show_mobile">
+
+		<img class="margtop30" src="modules/core/img/wello-fridge.png">
+
+		<h2 class="light_blue">Home of the Wello Fridge and Brad's Cheeky Resume</h2>
+		
+		<h3 class="light_blue"><i>Based on the Playful <a target="_new" href="https://trello.com/c/nFxIbBrr/1339-trello-refrigerator">Trello Refrigerator</a> Concept by <a target="_new" href="https://trello.com">Trello</a></i><br><div class="margtop6">Please visit <a href="http://www.bradmw.com" target="_new">www.bradmw.com</a> for a grounded version of my resume.</div></h3><br>
+
+		<div ng-show="authentication.user" class="signout_tab_home">
+			Logged in as {{authentication.user.displayName}}
+			<a href="/#!/signout">Signout</a>
+		</div>
+
+		<div class="munchkin_rock">
+			<img src="modules/core/img/munchkin_welcome.png">
+		</div>
+
+		<div class="warning_panel">
+
+			<div ng-if="show_browser_warning === 1 && suppress_browser === 0" class="warning_light">
+				Wello is optimized for Chrome.  You can still use Firefox or IE10+, but it won't be as amazing.<br><a href="" ng-click="sup_browser(1);">Suppress Browser Warnings</a>  
+			</div>
+
+			<div ng-if="show_browser_warning  === 2 && suppress_browser" class="warning_heavy">
+				Your browser window resolution is way too low and the quality of your Wello experience will diminish considerably as a result.  Please zoom out to make this go away!<br><a href="" ng-click="sup_browser(1);">Suppress Browser Warnings</a> 
+			</div>
+
+			<div ng-if="show_resolution_warning === 1 && suppress_resolution === 0" class="warning_light">
+				Wello is best experienced at around a 1920px window width.  You are currently at {{width}}px so you should zoom <span ng-show="width < 1900">out</span><span ng-show="width > 1900">in</span>.<br><a href="" ng-click="sup_resolution(1);">Suppress Minor Warnings</a>  
+			</div>
+
+			<div ng-if="show_resolution_warning  === 2 && suppress_resolution < 2" class="warning_heavy">
+				Your window resolution is way too low!  Please zoom out!<br><a href="" ng-click="sup_resolution(2);">Suppress Resolution Warnings</a> 
+			</div>
+
+		</div>
+
+		<div class="store_space">
+		<div class="store_fridge pointer-cursor" ng-click="goto('fridge_base')">
+			<div class="in_stock">
+			IN STOCK! <span>CLICK HERE</span> FOR A FREE TRIAL!
+			</div>	
+			<div class="cube_wrap" >
+				<div class="cube">
+					<div class="cube-front"><img src="modules/core/img/store/fridge1_front.jpg" width="200" height="300"></div>
+					<div class="cube-top"><img class="cube-top" src="modules/core/img/store/fridge1_top.jpg" width="200" height="200"></div>
+					<div class="cube-left"><img src="modules/core/img/store/fridge1_left.jpg" width="200" height="300"></div>
+					<div class="cube-right"><img src="modules/core/img/store/fridge1_right.jpg" width="200" height="300"></div>
+					<div class="cube-bottom"></div>				
+				</div>
+			</div>
+		</div>
+
+		<div class="store_fridge">
+			<div class="sold_out">
+			SOLD OUT!
+			</div>
+			<div class="cube_wrap store_dx_transform">
+				<div class="cube">
+					<div class="cube-front"><img src="modules/core/img/store/fridge2_front.jpg" width="200" height="300"></div>
+					<div class="cube-top"><img src="modules/core/img/store/fridge1_top.jpg" width="200" height="200"></div>
+					<div class="cube-left"><img src="modules/core/img/store/fridge2_left.jpg" width="200" height="300"></div>
+					<div class="cube-right"><img src="modules/core/img/store/fridge2_right.jpg" width="200" height="300"></div>
+					<div class="cube-bottom"></div>				
+				</div>
+			</div>
+		</div>
+		<div class="store_fridge">
+			<div class="sold_out">
+			SOLD OUT!
+			</div>	
+			<div class="cube_wrap store_mini_transform">
+				<div class="cube">
+					<div class="cube-front"><img src="modules/core/img/store/fridge3_front.jpg" width="200" height="300"></div>
+					<div class="cube-top"><img src="modules/core/img/store/fridge1_top.jpg" width="200" height="200"></div>
+					<div class="cube-left"><img src="modules/core/img/store/fridge3_left.jpg" width="200" height="300"></div>
+					<div class="cube-right"><img src="modules/core/img/store/fridge3_right.jpg" width="200" height="300"></div>
+					<div class="cube-bottom"></div>				
+				</div>
+			</div>
+		</div>
+		<div class="store_fridge">
+			<div class="sold_out">
+			SOLD OUT!
+			</div>	
+			<div class="cube_wrap">
+				<div class="cube">
+					<div class="cube-front"><img src="modules/core/img/store/fridge4_front.jpg" width="200" height="300"></div>
+					<div class="cube-top"><img src="modules/core/img/store/fridge4_top.jpg" width="200" height="200"></div>
+					<div class="cube-left"><img src="modules/core/img/store/fridge4_left.jpg" width="200" height="300"></div>
+					<div class="cube-right"><img src="modules/core/img/store/fridge4_right.jpg" width="200" height="300"></div>
+					<div class="cube-bottom"></div>
+				</div>
+			</div>
+		</div>			
+		</div>
+
+		<div class="store_text">
+			<div ng-repeat="fridge in fridges" class="store_fridge_block">
+				<div class="store_fridge_title">{{fridge.name}}</div>
+				<div class="store_fridge_des">
+					<div ng-repeat="false_statement in fridge.marketing" class="store_fridge_lie">
+					<span class="lie_icon"><span class="glyphicon glyphicon-{{false_statement.icon}}" ></span></span> <div class="lie_text">{{false_statement.text}}</div>
+					<div class="cb"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

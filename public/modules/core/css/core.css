@@ -1,0 +1,180 @@
+
+	/* Base CSS */
+
+	body {
+		width: 100%;
+		text-align: center;
+	}
+
+	.undecorated-link:hover {
+		text-decoration: none;
+	}
+
+	[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+		display: none !important;
+	}
+
+	.container {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+
+	.ofh {
+		overflow: hidden;
+	}
+
+	.zero {
+		margin: 0;
+		padding: 0;
+	}
+
+	.full_width {
+		width: 100%;
+	}
+
+	.marg0 {
+		margin: 0;
+	}
+
+	.marg5 {
+		margin: 5px;
+	}
+
+	.marg15 {
+		margin: 15px;
+	}
+
+	.margtop6 {
+		margin-top: 6px;
+	}
+
+	.margtop15 {
+		margin-top: 15px;
+	}
+
+	.margtop20 {
+		margin-top: 20px;
+	}
+
+	.margtop30 {
+		margin-top: 30px;
+	}
+
+	.margbot10 {
+		margin-bottom: 10px;
+	}
+
+	.margbot20 {
+		margin-bottom: 20px;
+	}
+
+	.margbot30 {
+		margin-bottom: 30px;
+	}
+
+	.marg7_0 {
+		margin: 7px 0 0 0; 
+		padding: 0;
+	}
+
+	.lrpad20 {
+		padding: 0 20px;
+	}
+
+	.cb {
+		clear: both;
+	}
+
+	.em9 {
+		font-size: 0.9em;
+	}
+
+	.pos_rel {
+		position: relative;
+	}
+
+	.mid {
+		vertical-align: middle;
+	}
+
+	.w50 {
+		width: 50%;
+	}	
+
+	.abs_topleft {
+		position: absolute; 
+		left: 0; 
+		top: 0;
+	}
+
+	.rel_topright {
+		top: 0; 
+		right: 0; 
+		position: relative	
+	}
+
+	.fr {
+		float: right;
+	}
+
+	.pr110 {
+		padding-right: 110px;
+	}
+
+	.white {
+		color: #fff;
+	}
+
+	.w35p {
+		width: 35px;
+	}
+
+	.tbpad2 {
+		padding: 2px 0;
+	}
+
+	.w20p {
+		width: 20px;
+	}
+
+	.tbmarg2 {
+		margin: 2px 0px;
+	}
+
+	.ddd {
+		background: #DDD;
+	}
+
+	.margleft10 {
+		margin-left: 10px !important;
+	}
+
+	.f0f {
+		color: #f0f;	
+	}
+
+	.marg5 {
+		margin: 5px;
+	}
+
+	.em8 {
+		font-size: 0.8em;
+	}
+
+	.weight_normal {
+		font-size: 0.9em; 
+		font-weight: normal;
+	}
+
+	.margright5 {
+		margin-right: 5px;
+	}
+
+	.pad6 {
+		padding: 6px;
+	}
+
+	.margbot5 {
+		margin-bottom: 5px;
+	}

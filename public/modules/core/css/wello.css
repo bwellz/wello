@@ -1,0 +1,428 @@
+	
+	/* CSS File for misc. Wello styling */
+
+	.wello_title {
+		margin: 10px 0 0 20px; float: left;
+	}
+
+	.wello_bg  {
+		background-color: #23719F;
+		color: #E5EBEF;
+	}
+
+	.wello_bg a {
+		color: #fff;
+		text-decoration: underline;
+	}
+
+	.wello_bg a:hover {
+		text-decoration: none;		
+	}
+
+	.white_bg  {
+		background-color: #FFF;
+		overflow: auto;
+	}	
+
+	.off_bg {
+		background-color: #333;
+	}
+
+	.has_ingredient
+	{
+		color: #090;
+	}
+
+	.has_ingredient_bg
+	{
+		background-color: #292;
+	}
+
+	.image_holder
+	{
+		opacity: 0.8;
+		width:  300px;
+		max-height: 400px;
+		padding: 0;
+		margin: 0;
+		margin-top: 10px;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.orange_error {
+		background-color: #B95946; 
+		color: #fff; 
+		padding: 4px 7px;
+	}
+
+	.degrees:after {
+  		content: "\00b0";
+	}
+
+	.white-text {
+		color: #fff;
+	}
+
+	.form-control {
+		background-color: #E5EBEF;
+	}
+
+	.cat {
+		margin-top: 25px; 
+		width: 270px; 
+		border: 0px solid #444;
+		box-shadow: 0 0 15px rgb(0,0,0), 0 0 40px rgba(0,0,0,0.8);
+		border-radius: 10px;
+	}
+
+	.scroll-element.scroll-x {
+    	display: none !important;
+	}
+
+	.edit-anim.ng-leave {
+	  -webkit-animation: edit_leave_sequence 0.3s linear; 
+	  -moz-animation: edit_leave_sequence 0.3s linear; 
+	  animation: edit_leave_sequence 0.3s linear; 	  	  
+	}
+	@-webkit-keyframes edit_leave_sequence {
+	  from { -webkit-transform: scaleY(1); }
+	  to { -webkit-transform: translate(0,-135px) scaleY(0); }
+	}
+	@-moz-keyframes edit_leave_sequence {
+	  from { -moz-transform: scaleY(1); }
+	  to { -moz-transform: translate(0,-135px) scaleY(0); }
+	}
+	@keyframes edit_leave_sequence {
+	  from { transform: scaleY(1); }
+	  to { transform: translate(0,-135px) scaleY(0); }
+	}	
+
+	.edit-anim.ng-enter {
+	  -webkit-animation: edit_enter_sequence 0.3s linear; 
+	  -moz-animation: edit_enter_sequence 0.3s linear; 
+	  animation: edit_enter_sequence 0.3s linear; 	  	  
+	}
+	@-webkit-keyframes edit_enter_sequence {
+	  from { -webkit-transform: translate(0,-135px) scaleY(0); }
+	  to { -webkit-transform: scaleY(1); }
+	}
+	@-moz-keyframes edit_enter_sequence {
+	  from { -moz-transform: translate(0,-135px) scaleY(0); }
+	  to { -moz-transform: scaleY(1); }
+	}
+	@keyframes edit_enter_sequence {
+	  from { -webkit-transform: translate(0,-135px) scaleY(0); }
+	  to { transform: scaleY(1); }
+	}	
+
+	.modal-content {
+		-webkit-animation: modal_glow_sequence 1.5s ease-in-out infinite;
+		-moz-animation: modal_glow_sequence 1.5s ease-in-out infinite;
+		animation: modal_glow_sequence 1.5s ease-in-out infinite;				
+		background-color: #e6ffe6;
+	}
+	@-webkit-keyframes modal_glow_sequence {
+	  0%,100% { opacity: 0.9; box-shadow: 0 0 25px rgba(0,250,0,0.75); /*-webkit-transform: scale(1.0) translate(0,0);*/ }
+	  20%, 80% { opacity: 0.95; /*-webkit-transform: translate(-1px,-1px) */ }
+	  50% { opacity: 0.85; box-shadow: 0 0 40px rgba(0,250,0,0.8); /*-webkit-transform: scale(1.002) translate(1px,0);*/ }
+	}	
+
+	@-moz-keyframes modal_glow_sequence {
+	  0%,100% { opacity: 0.9; box-shadow: 0 0 25px rgba(0,250,0,0.75); }
+	  20%, 80% { opacity: 0.95; }
+	  50% { opacity: 0.85; box-shadow: 0 0 40px rgba(0,250,0,0.8); }
+	}	
+	@keyframes modal_glow_sequence {
+	  0%,100% { opacity: 0.9; box-shadow: 0 0 25px rgba(0,250,0,0.75);  }
+	  20%, 80% { opacity: 0.95; }
+	  50% { opacity: 0.85; box-shadow: 0 0 40px rgba(0,250,0,0.8); }
+	}		
+
+	.glyphicon-star-empty {
+		color: #eef;
+	}
+
+	.glyphicon-star-empty:hover {
+		color: #ff0;
+	}
+
+	.glyphicon-star {
+		color: #ff0;
+	}
+
+	.glyphicon-star:hover {
+		color: #cc0;
+	}	
+
+	.light-star {
+		color: rgb(78, 160, 247) !important;
+	}
+
+	.quick-fade-in {
+    	-webkit-animation: quick-fade-in-seq 0.5s linear;	
+    	-moz-animation: quick-fade-in-seq 0.5s linear;	
+    	animation: quick-fade-in-seq 0.5s linear;	    	    		
+	}
+	@-webkit-keyframes quick-fade-in-seq {
+	    from { opacity: 0.0; }
+	    to { opacity: 1.0;}
+	}	
+	@-moz-keyframes quick-fade-in-seq {
+	    from { opacity: 0.0; }
+	    to { opacity: 1.0;}
+	}	
+	@keyframes quick-fade-in-seq {
+	    from { opacity: 0.0; }
+	    to { opacity: 1.0;}
+	}		
+
+	.quick-fade-out {
+    	-webkit-animation: quick-fade-out-seq 0.5s linear;	
+    	-moz-animation: quick-fade-out-seq 0.5s linear;	    		
+    	animation: quick-fade-out-seq 0.5s linear;	       	
+	}
+	@-webkit-keyframes quick-fade-out-seq {
+	    from { opacity: 1.0; }
+	    to { opacity: 0.0;}
+	}	
+	@-moz-keyframes quick-fade-out-seq {
+	    from { opacity: 1.0; }
+	    to { opacity: 0.0;}
+	}	
+	@keyframes quick-fade-out-seq {
+	    from { opacity: 1.0; }
+	    to { opacity: 0.0;}
+	}	
+
+	.badge_inactive, .badge_active {
+		font-size: 0.7em; 
+		vertical-align: middle;  
+		padding: 3px 4px 2px 4px; 
+		margin: 0; 
+		font-weight: bold;
+	}
+
+	.badge_inactive {
+		background-color: #ddd; 
+		color: rgb(35, 113, 159); 
+	}
+
+	.badge_active {
+		background-color: rgb(78, 160, 247);
+		color: #249; 
+	}
+
+	.modal {
+	  top: 	0% !important;	  	  
+	}
+
+	.modal.fade {
+		top: 0% !important;
+	 	-webkit-transition: opacity 0.2s linear !important;	
+	 	-moz-transition: opacity 0.2s linear !important;
+	 	transition: opacity 0.2s linear !important;		 
+	}
+
+	.modal-dialog {
+		-webkit-animation: modal_fade_in 0.4s linear !important;	
+		-moz-animation: modal_fade_in 0.4s linear !important;	
+		animation: modal_fade_in 0.4s linear !important;	
+		-webkit-transform: none !important;
+		-moz-transform: none !important;
+		transform: none !important;				
+		top: 0% !important;	
+	}
+	@-webkit-keyframes modal_fade_in {
+	  from { opacity:0.0;-webkit-transform: scale(0.0); }
+	  50% { opacity:1.0;-webkit-transform: scale(1.1); }	  
+	  to { opacity:1.0;-webkit-transform: scale(1.0); }
+	}
+	@-moz-keyframes modal_fade_in {
+	  from { opacity:0.0;-moz-transform: scale(0.0); }
+	  50% { opacity:1.0;-moz-transform: scale(1.1); }	  
+	  to { opacity:1.0;-moz-transform: scale(1.0); }
+	} 
+	@keyframes modal_fade_in {
+	  from { opacity:0.0;transform: scale(0.0); }
+	  50% { opacity:1.0;transform: scale(1.1); }	  
+	  to { opacity:1.0;transform: scale(1.0); }
+	}
+
+	.scrollbar-dynamic {
+		max-height: 410px;
+		width: 190px;
+		padding: 0;
+		margin: 0;
+		position: relative;
+		overflow: hidden;		
+	}
+
+	.rot90 {
+	    -webkit-transform: rotate(-90deg);
+	    -moz-transform: rotate(-90deg);
+	    transform: rotate(-90deg);
+		padding: 6px 15px;
+		font-size: 1.2em;
+		font-weight: bold;
+		width: 190px;
+		height: 37px;
+		background-color: #1E4A74;
+		color: #E5EBEF;	  
+		position: absolute;
+		text-align: left;
+		right: -70px;
+		top: 76px;  
+		border-top-left-radius: 12px;
+		border-bottom-left-radius: 12px;
+	}
+
+	.default-cursor {
+		cursor: default;
+	}
+
+	.pointer-cursor {
+		cursor: pointer;
+	}
+
+	.auth_half {
+		display: inline-block; 
+		float: left; width: 50%; 
+		padding-left: 80px;
+	}
+
+	.auth_other_half {
+		display: inline-block; 
+		float: left; 
+		width: 50%; 
+		padding: 0 100px
+	}
+
+	.warning_yellow {
+		color: #ff6;
+	}	
+
+	.zip_group {
+		width: 90%; 
+		margin: 10px 20px;
+	}
+
+	.back_to_store_tab {
+		position: absolute; right: 0px; 
+		text-align: left; 
+		width: 130px; 
+		top: 15px; 
+		box-shadow: 0 0 10px #222; 
+		background-color: #eef; 
+		color: #444; 
+		border-bottom-left-radius: 20px; 
+		border-top-left-radius: 20px; 
+		padding: 10px; 
+		padding-left: 15px;
+	}
+
+	.signout_tab {
+		position: absolute; 
+		right: 0px; 
+		text-align: left; 
+		width: 95px; 
+		top: 65px; 
+		box-shadow: 0 0 10px #555;
+		background-color: #eef; 
+		color: #444; 
+		border-bottom-left-radius: 20px;
+		border-top-left-radius: 20px;
+		padding: 10px; 
+		padding-left: 15px
+	}
+
+	.signout_tab_home {
+		position: absolute; 
+		right: 0px; 
+		text-align: left; 
+		width: 250px; 
+		top: 65px; 
+		box-shadow: 0 0 10px #555;
+		background-color: #eef; 
+		color: #444; 
+		border-bottom-left-radius: 20px;
+		border-top-left-radius: 20px;
+		padding: 10px; 
+		padding-left: 15px
+	}
+
+	.warning_panel div a {
+		color: #ee4;
+	}
+
+	.fridge_munchkin {
+		position: absolute; 
+		top: 200px; 
+		z-index: 0;	
+	}
+
+	.munchkin_catch {
+		position: absolute; 
+		top: 0; 
+		z-index: 0;
+	}
+
+	.munchkin_passout {
+		position: absolute; 
+		top: 0; 
+		z-index: 1;
+	}
+
+	.eating_food {
+		position: absolute; 
+		top: 200px; 
+		z-index: 3;
+	}
+
+	.caught_food {
+		position: absolute; 
+		top: 200px; 
+		z-index: 1;
+	}
+
+	.flying_food {
+		position: absolute; 
+		top: 330px; 
+		z-index: 2;
+	}
+
+	.food_pos {
+		position: absolute; 
+		left: -70px; 
+		top: 130px;
+	}
+
+	.food_rot {
+		position: absolute; 
+		top: 0; 
+		-webkit-transform: rotate(-10.0deg); 
+		-moz-transform: rotate(-10.0deg); 
+		transform: rotate(-10.0deg);	
+	}
+
+	.mobile_home {
+		margin-bottom: 20px; 
+		color: #fff;
+	}
+
+	.light_yellow {
+		color: #ffc;
+	}
+
+	.light_blue {
+		color: #eef;
+	}
+
+	.light_blue a {
+		color: #aaf;
+	}
+
+	.screenshot_border {
+		border: 3px solid #ff6; 
+		margin-bottom: 10px;
+	}

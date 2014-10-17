@@ -1,0 +1,261 @@
+
+	/* CSS File for styling and animation Wello Lists */
+
+	.lists {
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		user-select: none;
+		margin: 0; 
+		padding: 0; 
+		position: relative; 
+		top: 10px
+	}
+
+	.nib_list {
+		max-height: 390px; 
+		width: 190px; 
+		background: #CCC; 
+		border: 0; 
+		color: #333;
+		font-size: 1.0em;
+		font-weight: bold;
+		float: left;
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		border-radius: 5px;
+		word-wrap: break-word;
+	}
+
+	.list {
+		max-height: 390px; 
+		width: 190px; 
+		background: #CCC; 
+		border: 0; 
+		color: #333;
+		font-size: 1.0em;
+		font-weight: bold;
+		float: left;
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		border-radius: 5px;
+		word-wrap: break-word;
+	}
+
+	.list_control.ng-enter  {
+	  -webkit-animation: list_control_sequence 0.5s linear;
+	  -moz-animation: list_control_sequence 0.5s linear;
+	  animation: list_control_sequence 0.5s linear;	  	   
+	}
+	@-webkit-keyframes list_control_sequence {
+	  from { opacity: 0.0; }
+	  to { opacity: 1.0; }
+	}	
+	@-moz-keyframes list_control_sequence {
+	  from { opacity: 0.0; }
+	  to { opacity: 1.0; }
+	}	
+	@keyframes list_control_sequence {
+	  from { opacity: 0.0; }
+	  to { opacity: 1.0; }
+	}		
+
+	.list.ng-enter {
+	  -webkit-animation: list_enter_sequence 0.7s ease-out; 
+	  -moz-animation: list_enter_sequence 0.7s ease-out; 
+	  animation: list_enter_sequence 0.7s ease-out; 	  	  
+	}
+	@-webkit-keyframes list_enter_sequence {
+	  from { -webkit-transform: scaleY(1.0); margin-top: -100px; }
+	  40% { -webkit-transform: scaleY(0.4); margin-top: 15px;}
+	  70% { -webkit-transform: scaleY(1.0); margin-top: -30px;}
+	  to { -webkit-transform: scaleY(1.0); margin-top: 0px;  }
+	}	
+	@-moz-keyframes list_enter_sequence {
+	  from { -moz-transform: scaleY(1.0); margin-top: -100px; }
+	  40% { -moz-transform: scaleY(0.4); margin-top: 15px;}
+	  70% { -moz-transform: scaleY(1.0); margin-top: -30px;}
+	  to { -moz-transform: scaleY(1.0); margin-top: 0px;  }
+	}	
+	@keyframes list_enter_sequence {
+	  from { transform: scaleY(1.0); margin-top: -100px; }
+	  40% { transform: scaleY(0.4); margin-top: 15px;}
+	  70% {transform: scaleY(1.0); margin-top: -30px;}
+	  to { transform: scaleY(1.0); margin-top: 0px;  }
+	}		
+
+	.list.ng-leave {
+	  -webkit-animation: list_leave_sequence 1.5s ease-in; 
+	  -moz-animation: list_leave_sequence 1.5s ease-in; 
+	  animation: list_leave_sequence 1.5s ease-in; 	  	  
+	}
+	@-webkit-keyframes list_leave_sequence {
+	  from { }
+	  to { margin-top: 550px; -webkit-transform: rotate(150deg); }
+	}		
+	@-moz-keyframes list_leave_sequence {
+	  from { }
+	  to { margin-top: 550px; -moz-transform: rotate(150deg); }
+	}
+	@keyframes list_leave_sequence {
+	  from { }
+	  to { margin-top: 550px; transform: rotate(150deg); }
+	}	
+
+	.list_head {
+		padding: 2px 6px;
+		margin: 0;
+		color: #555;
+		font-size: 1.1em;
+		text-align: left;
+		cursor: move;		
+	}
+
+	.list_foot {
+		padding: 5px 6px 6px 6px;
+		margin: 0;
+		color: #555;
+		font-size: 0.9em;
+		text-align: left;
+		cursor: move;		
+	}	
+
+	.list_foot a {
+		color: #1F648D !important;
+	}
+
+	.list-animation.ng-enter {
+	  -webkit-animation: enter_sequence 0.5s linear; 
+	  -moz-animation: enter_sequence 0.5s linear; 
+	  animation: enter_sequence 0.5s linear; 	  	  
+	}
+	@-webkit-keyframes enter_sequence {
+	  from { -webkit-tranform: scale(1) }
+	  30% { -webkit-transform: scale(0.7); }
+	  75% { -webkit-transform: scale(1.1); }
+	  to { -webkit-transform: scale(1); }
+	}
+	@-moz-keyframes enter_sequence {
+	  from { -moz-tranform: scale(1) }
+	  30% { -moz-transform: scale(0.7); }
+	  75% { -moz-transform: scale(1.1); }
+	  to { -moz-transform: scale(1); }
+	}
+	@keyframes enter_sequence {
+	  from { tranform: scale(1) }
+	  30% { transform: scale(0.7); }
+	  75% { transform: scale(1.1); }
+	  to { transform: scale(1); }
+	}		
+
+	.list-animation.ng-leave {
+	  -webkit-animation: leave_sequence 0.0s linear; 
+	  -moz-animation: leave_sequence 0.0s linear; 
+	  animation: leave_sequence 0.0s linear; 	  	  
+	}
+	@-webkit-keyframes leave_sequence {
+	  from { opacity: 0; }
+	  to { opacity: 1; }
+	}
+	@-moz-keyframes leave_sequence {
+	  from { opacity: 0; }
+	  to { opacity: 1; }
+	}
+	@keyframes leave_sequence {
+	  from { opacity: 0; }
+	  to { opacity: 1; }
+	}	
+
+	.lists-anim.ng-enter, .nib-panel-anim {
+	  -webkit-animation: lists_enter_sequence 1.0s linear;
+	  -moz-animation: lists_enter_sequence 1.0s linear; 
+	  animation: lists_enter_sequence 1.0s linear; 	  	   
+	}
+	@-webkit-keyframes lists_enter_sequence {
+	  from { opacity:0.0; }
+	  to { opacity:1.0; }
+	}
+	@-moz-keyframes lists_enter_sequence {
+	  from { opacity:0.0; }
+	  to { opacity:1.0; }
+	}
+	@keyframes lists_enter_sequence {
+	  from { opacity:0.0; }
+	  to { opacity:1.0; }
+	}	
+
+	.list_head_mixin {
+		cursor: default; 
+		margin: 1px 0;
+	}
+
+	.list_head_mixin2 {
+		color: #D5DBDF; 
+		cursor: pointer; 
+		padding: 0px;
+	}
+
+	.list_head_mixin_slide {
+		margin: 1px 0;
+	}
+
+	.list_lock_icon {
+		line-height: 18px; 
+		font-size: 0.8em; 
+		color: #555;	
+	}
+
+	.list_card_count {
+		font-size: 0.8em;  
+		background-color: rgb(35, 113, 159); 
+		color: #ddd; 
+		padding: 3px 5px 2px 5px;
+	}
+
+	.list_name {
+		line-height: 18px; 
+		cursor: default;
+	}
+
+	.list_add_card {
+		width: 170px; 
+		padding: 0; 
+		margin: -2px 0 -1px -2px;
+	}
+
+	.list_edit {
+		line-height: 18px; 
+		cursor: pointer;
+	}
+
+	.list_edit_style {
+		width: 170px; 
+		padding: 0; 
+		margin: 1px 0 3px -2px;
+	}
+
+	.list_control_add {
+		width: 170px; 
+		padding: 0; 
+		margin: -2px 0 -1px -2px;	
+	}
+
+	.list_control_delete {
+		width: 160px; 
+		font-size: 0.8em; 
+		padding-left: 3px; 
+		margin: -2px 0 -1px -2px; 
+		cursor: default
+	}
+
+	.list_new {
+		margin-left: 10px; 
+		background-color: #1E4A74; 
+		position: absolute; top: 0;
+	}
+
+	.show_new_list {
+		padding: 8px 12px;
+	}

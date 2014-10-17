@@ -1,0 +1,159 @@
+	/* CSS File for animating and displaying Wello Snake */
+
+	.nibs-anim {
+		 	-webkit-animation: nib_anim 1.5s infinite;
+		 	-moz-animation: nib_anim 1.5s infinite;
+		 	animation: nib_anim 1.5s infinite; 	 		 	
+	}
+	@-webkit-keyframes nib_anim {
+	  0%,100% { background-color: rgb(52, 178, 125); -webkit-transform: scale(0.9);   }
+	  17% { background-color: rgb(219, 219, 87); -webkit-transform: scale(0.9); }
+	  34% { background-color: rgb(224, 153, 82); -webkit-transform: scale(0.9); }
+	  50% { background-color: rgb(203, 77, 77); -webkit-transform: scale(0.9); }
+	  67% { background-color: rgb(153, 51, 204); -webkit-transform: scale(0.9); }
+	  84% { background-color: rgb(77, 119, 203); -webkit-transform: scale(0.9); }  	  	  	  	  
+	}
+	@-moz-keyframes nib_anim {
+	  0%,100% { background-color: rgb(52, 178, 125); -moz-transform: scale(0.9);   }
+	  17% { background-color: rgb(219, 219, 87); -moz-transform: scale(0.9); }
+	  34% { background-color: rgb(224, 153, 82); -moz-transform: scale(0.9); }
+	  50% { background-color: rgb(203, 77, 77); -moz-transform: scale(0.9); }
+	  67% { background-color: rgb(153, 51, 204); -moz-transform: scale(0.9); }
+	  84% { background-color: rgb(77, 119, 203); -moz-transform: scale(0.9); }  	  	  	  	  
+	}
+	@keyframes nib_anim {
+	  0%,100% { background-color: rgb(52, 178, 125); transform: scale(0.9);   }
+	  17% { background-color: rgb(219, 219, 87); transform: scale(0.9); }
+	  34% { background-color: rgb(224, 153, 82); transform: scale(0.9); }
+	  50% { background-color: rgb(203, 77, 77); transform: scale(0.9); }
+	  67% { background-color: rgb(153, 51, 204); transform: scale(0.9); }
+	  84% { background-color: rgb(77, 119, 203); transform: scale(0.9); }  	  	  	  	  
+	}	
+
+	.nib-candy {
+		-webkit-animation: candy_anim 0.5s infinite;
+		-moz-animation: candy_anim 0.5s infinite;
+		-ms-animation: candy_anim 0.5s infinite;				
+	}
+	@-webkit-keyframes candy_anim {
+	  0%,100% { opacity: 0.8; -webkit-transform: scale(1.0); }
+	  50% { opacity: 1; -webkit-transform: scale(1.5); box-shadow: 0px 0px 10px 5px rgba(0,255,0,0.7);  }
+	}	
+	@-moz-keyframes candy_anim {
+	  0%,100% { opacity: 0.8; -moz-transform: scale(1.0); }
+	  50% { opacity: 1; -moz-transform: scale(1.5); box-shadow: 0px 0px 10px 5px rgba(0,255,0,0.7);  }
+	}	
+	@-ms-keyframes candy_anim {
+	  0%,100% { opacity: 0.8; transform: scale(1.0);  }
+	  50% { opacity: 1; transform: scale(1.5); }
+	}			
+
+	.nibs-anim.ng-leave {
+		-webkit-animation: nib_anim_out 0.5s linear;
+		-moz-animation: nib_anim_out 0.5s linear;	
+	}
+	@-webkit-keyframes nib_anim_out {
+	  0% { opacity: 1; -webkit-transform: scale(0.9); }
+	  100% { opacity: 0; -webkit-transform: scale(0.0); }
+	}	
+	@-moz-keyframes nib_anim_out {
+	  0% { opacity: 1; -moz-transform: scale(0.9); }
+	  100% { opacity: 0; -moz-transform: scale(0.0); }
+	}
+
+	.card_breaker_paddle_panel {
+		z-index: 1; 
+		width: 905px; 
+		height: 410px; 
+		position: absolute; 
+		top: 0; 
+		left: 0	
+	}
+
+	.munchkin_spin_mixin {
+		 z-index: 0; 
+		 position: absolute; 
+		 width: 50px; 
+		 height: 50px; 
+		 margin-left: -25px; 
+		 margin-top: -25px;
+	}
+
+	.cardbreaker_food {
+		z-index: 0; 
+		position: absolute; 
+		width: 80px;
+	}
+
+	.cardbreaker_laser {
+		z-index: 0; 
+		position: absolute; 
+		width: 60px;
+	}
+
+	.cardbreaker_paddle {
+		z-index: 0; 
+		width: 100px; 
+		position: absolute; 
+		height: 20px; 
+		top: 380px; 
+		background-color: #999; 
+		border-radius: 10px;	
+	}
+
+	.cardbreaker_list {
+		z-index: 0; 
+		position: absolute; 
+		width: 180px; 
+		top: 0px; 
+		background-color: #f00;
+	}
+
+	.cardbreaker_card {
+		text-align: left; 
+		color: #333; 
+		padding: 0 4px; 
+		border-radius: 4px; 
+		position: absolute; 
+		margin: 2px; 
+		background-color: #fff; 
+		height: 40px;
+	}
+
+	.nibs_mixin {
+		position: absolute; 
+		width: 10px; 
+		height: 10px; 
+		background-color: rgb(219, 219, 87);
+	}
+
+	.nib_candy_mixin {
+		border-radius: 5px; 
+		position: absolute; 
+		width: 10px; 
+		height: 10px; 
+		background-color: #fff;
+	}
+
+	.nib_list_mixin {
+		position: absolute; 
+		width: 190px; 
+		height: 330px;	
+	}
+
+	.snake_cat {
+		position: absolute; 
+		border-radius: 8px;
+	}
+
+	.fun_btn1 {
+		float: right !important; 
+		margin: 5px 5px 0 0 !important; 
+		padding: 1px 2px !important;
+	}
+
+	.fun_btn2 {
+		float: right !important; 
+		margin: 5px 5px 0 0 !important; 
+		padding: 2px 2px !important;	
+	}

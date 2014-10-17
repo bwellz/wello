@@ -1,0 +1,286 @@
+	
+	/* CSS File for styling and animation label (and filter) transitions */
+
+	.lab_tray {
+		margin: -9px 0 4px -2px;
+		padding: 0;
+		width: 170px;
+	}
+
+	.lab_tray2 {
+		margin: 2px 0 4px -2px;
+		padding: 0;
+		width: 170px;
+	}	
+
+	.lab_border {
+
+	}
+
+	.lab_menu, .lab_card_menu {
+		font-weight: bold; 
+		margin-left: 0px; 
+		text-align: left; 
+		border-radius: 5px;
+		padding: 2px 8px;
+		min-height: 24px;
+		display: inline-block;
+		text-shadow: 0.0em 0.0em 0.5em #222;
+		margin-bottom: -5px;
+		white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;		
+	}
+
+	.lab_menu {
+		width: 315px; 	
+	}	
+
+	.lab_card_menu {
+		width: 260px; 	
+	}
+
+	.lab_arrow {
+		text-align: center;
+		width: 25px;
+		display: inline-block;	
+		color: #fff;
+	}
+
+	.lab_highlight, .lab_card_highlight {
+		margin-left: 25px;
+		color: #fff;
+		display: inline-block;		
+	}
+
+	.lab_highlight {
+		width: 250px;
+	}
+
+	.lab_card_highlight {
+		width: 235px;
+	}
+
+	.lab_any {
+		text-align: center;
+		width: 40px;
+		margin-top: -5px;
+		display: inline-block;	
+		color: #fff;		
+	}
+
+	.lab {
+		margin: 0 0 2px 3px;
+		padding: 0;
+		width: 36px;
+		height: 4px;
+		float: left;
+		display: inline-block;
+	}	
+
+	.lab-0 {
+		background-color: rgb(52, 178, 125);
+		border: 0;
+	}
+
+	.lab-0:hover, .lab-0-hover {
+		background-color: rgb(32,158,105);
+	}
+
+	.lab-1 {
+		background-color: rgb(219, 219, 87);
+		border: 0;
+	}
+
+	.lab-1:hover, .lab-1-hover {
+		background-color: rgb(199,199,67);
+	}	
+
+	.lab-2 {
+		background-color: rgb(224, 153, 82);
+		border: 0;
+	}
+
+	.lab-2:hover, .lab-2-hover {
+		background-color: rgb(204,133,62);
+	}
+
+	.lab-3 {
+		background-color: rgb(203, 77, 77);
+		border: 0;
+	}
+
+	.lab-3:hover, .lab-3-hover {
+		background-color: rgb(183,57,57);
+	}	
+
+	.lab-4 {
+		background-color: rgb(153, 51, 204);
+		border: 0;
+	}
+
+	.lab-4:hover, .lab-4-hover {
+		background-color: rgb(133,31,184);
+	}	
+
+	.lab-5 {
+		background-color: rgb(77, 119, 203);
+		border: 0;
+	}
+
+	.lab-5:hover, .lab-5-hover {
+		background-color: rgb(57,99,183);
+	}	
+
+	.label-anim.ng-enter {
+	  -webkit-animation: label_enter_sequence 0.15s linear; 
+	  -moz-animation: label_enter_sequence 0.15s linear; 	  
+	  animation: label_enter_sequence 0.15s linear; 
+	  position: absolute;
+	}
+	@-webkit-keyframes label_enter_sequence {
+	  from { -webkit-transform: translateY(-100px) scaleY(0.1); }
+	  to { -webkit-transform: scaleY(1); }
+	}
+	@-moz-keyframes label_enter_sequence {
+	  from { -moz-transform: translateY(-100px) scaleY(0.1); }
+	  to { -moz-transform: scaleY(1); }
+	}
+	@keyframes label_enter_sequence {
+	  from { transform: translateY(-100px) scaleY(0.1); }
+	  to { transform: scaleY(1); }
+	}	
+
+	.label-anim.ng-leave {
+	  -webkit-animation: label_leave_sequence 0.15s linear; 
+	  -moz-animation: label_leave_sequence 0.15s linear; 
+	  animation: label_leave_sequence 0.15s linear; 	  	  
+	}
+	@-webkit-keyframes label_leave_sequence {
+	  0% { -webkit-transform: scaleY(1); }
+	  100% { -webkit-transform: translate(0,-100px) scaleY(0.1); }	  
+	}
+	@-moz-keyframes label_leave_sequence {
+	  0% { -moz-transform: scaleY(1); }
+	  100% { -moz-transform: translate(0,-100px) scaleY(0.1); }	  
+	}
+	@keyframes label_leave_sequence {
+	  0% { transform: scaleY(1); }
+	  100% { transform: translate(0,-100px) scaleY(0.1); }	  
+	}	
+
+	.filter_text {
+		float: left; 
+		width: 160px; 
+		margin: 8px 0 0 30px;
+		padding: 0; 
+		position: relative;	
+	}
+
+	.filter_label_space {
+		padding: 3px 0; 
+		cursor: pointer;
+	}
+
+	.lab_arrow_pos {
+		width: 20px; 
+		position: absolute; 
+		top: 50%; 
+		margin-top: -0.5em;	
+	}
+
+	.labels_edit {
+		padding: 6px 8px; 
+		position: absolute; 
+		left: 45px; 
+		top: 24px; 
+		width: 330px; 
+		border-bottom-right-radius: 10px; 
+		border-bottom-left-radius: 10px; 
+		background-color: #1E4A74; 
+		z-index: 20000;
+	}
+
+	.filtering {
+		margin: 2px 0 0 10px; 
+		color: #0f0; 
+		float: left;
+	}	
+
+	/* Abandon all hope, ye who enter the specificity-fail graveyard */
+
+	.filter_text_label {
+		height: 24px !important; 
+		padding: 2px 6px !important;
+	}
+
+	.h24p {
+		height: 24px !important;
+	}
+
+	.filter_labels {
+		float: left; 
+		margin: 8px 0 0 10px; 
+		padding: 0 !important; 	
+	}
+
+	.filter_labels_label {
+		border: 0; 
+		width: 40px; 
+		height: 24px !important; 
+		padding: 2px 6px !important; 
+		margin: 0; 
+		position: relative; 
+		z-index: 3;
+	}
+
+	.filter_label {
+		height: 24px !important; 
+		width: 40px; 
+		padding: 0 !important; 
+		margin: 0; 
+		cursor: pointer; 
+		position: relative; 
+		z-index: 3 !important;
+	}
+
+	.filter_label_toggle {
+		font-size: 0.8em !important; 
+		padding: 0 !important; 
+		margin: 0; 
+		border: 0; 
+		height: 24px !important; 
+		width: 40px; 
+		color: #fff; 
+		position: relative; 
+		z-index: 3 !important;	
+	}
+
+	.filter_label_show_edit {
+		 font-size: 0.8em !important; 
+		 padding: 0 !important	; 
+		 margin: 0; 
+		 border: 0; 
+		 height: 24px !important; 
+		 width: 40px; 
+		 position: relative; 
+		 z-index: 3 !important;
+	}
+
+	.filter_cancel {
+		height: 22px !important; 
+		width: 22px; 
+		padding: 0;
+	}
+
+	.filter_labels_show {
+		padding: 5px 8px; 
+		position: absolute; 
+		left: 45px; 
+		top: 24px; 
+		width: 330px; 
+		border-bottom-right-radius: 10px; 
+		border-bottom-left-radius: 10px; 
+		background-color: #1E4A74; 
+		z-index: 2 !important;
+	}

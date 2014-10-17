@@ -1,0 +1,487 @@
+	/* CSS File for structuring the fridges (frames) */
+
+	/* Fridge 1 (Base) */
+
+	.fridge1-container {
+		position: absolute; 
+		top: 0;
+		z-index: 4;
+	}
+	.fridge1-freezer-height {
+		height: 533px;
+	}
+	.fridge1-fridge-height {
+		height: 1232px;
+	}
+	.fridge1-top {
+		background-image:url('/modules/core/img/fridges/fridge1_top.png');
+		width: 1200px;
+		height: 7px;
+		padding: 0;
+		margin: 0;
+	}
+	.fridge2-top {
+		background-image:url('/modules/core/img/fridges/fridge2_top.png');
+		width: 1200px;
+		height: 11px;
+		padding: 0;
+		margin: 0;
+	}	
+	.fridge1-handle-cap {
+		background-image:url('/modules/core/img/fridges/fridge1_handle_cap.png');
+		width: 1200px;
+		height: 16px;
+		background-repeat:repeat-y;
+		padding: 0;
+		margin: 0;	
+	}
+	.fridge1-handle-top {
+		background-image:url('/modules/core/img/fridges/fridge1_handle.png');
+		width: 1200px;
+
+		background-repeat:repeat-y;
+		padding: 0;
+		margin: 0;	
+	}
+	.fridge1-handle-bot {
+		background-image:url('/modules/core/img/fridges/fridge1_handle.png');
+		width: 1200px;
+		height: 1200px;
+		background-repeat:repeat-y;
+		padding: 0;
+		margin: 0;	
+	}
+	.fridge1-mid-top {
+		background-image:url('/modules/core/img/fridges/fridge1_mid_top.png');
+		width: 1200px;
+		height: 20px;
+		padding: 0;
+		margin: 0;	
+	}
+	.fridge1-mid {
+		background-image:url('/modules/core/img/fridges/fridge1_mid.png');
+		width: 1200px;
+		height: 30px;
+		background-repeat:repeat-y;
+		padding: 0;
+		margin: 0;	
+	}
+	.fridge1-mid-bot {
+		background-image:url('/modules/core/img/fridges/fridge1_mid_bottom.png');
+		width: 1200px;
+		height: 20px;
+		padding: 0;
+		margin: 0;	
+	}
+	.fridge1-bot {
+		background-image:url('/modules/core/img/fridges/fridge1_bottom.png');
+		width: 1200px;
+		height: 40px;
+		padding: 0;
+		margin: 0;
+	}	
+	.handle1-top {
+		width: 106px;
+		height: 450px;
+		margin: 0 40px 0 0;
+		padding: 0;
+		float: left;
+		display: inline-block;
+		cursor: move;
+	}
+	.handle1-bot {
+		width: 106px;
+		height: 1200px;
+		margin: 0 40px 0 0;
+		padding: 0;
+		float: left;
+		display: inline-block;
+		cursor: move;
+	}	
+	.panel1 {
+		float: left;
+		margin: 0 0 0 0px;
+		padding: 0;
+		width: 943px;
+		float: left;
+		display: inline-block;		
+	}
+	.panel1-top {
+		background-image:url('/modules/core/img/fridges/panel_top.png');
+		width: 943px;	
+		height: 16px;
+		padding: 0;
+		margin: 0;	
+	}
+	.panel1-left {
+		width: 18px;
+		padding: 0;
+		margin: 0;
+		display: inline-block;
+		float: left;
+	}
+	.panel1-top-mid {
+		background-color: rgb(40,40,40);
+
+		width: 907px;
+		height: 450px;
+		padding: 0;
+		margin: 0;
+		
+		display: inline-block;
+		float: left;	
+	}
+	.panel1-bot-mid {
+		background-color: rgb(40,40,40);
+		width: 907px;
+		height: 500px;
+		padding: 0;
+		margin: 0;
+		display: inline-block;
+		float: left;	
+	}
+	.panel1-right {
+		width: 18px;
+		padding: 0;
+		margin: 0;
+		display: inline-block;
+		float: left;
+	}
+	.panel1-top-bot {
+		background-image:url('/modules/core/img/fridges/panel_top_bot.png');
+		width: 943px;
+		height: 35px;
+		padding: 0;
+		margin: 0;	
+		clear: both;
+	}
+	.panel1-bot-bot {
+		background-image:url('/modules/core/img/fridges/panel_bot_bot.png');
+		width: 943px;
+		height: 16px;
+		padding: 0;
+		margin: 0;	
+		clear: both;
+	}
+	.fridge {
+		background-repeat: no-repeat;
+  		background-size: 100%; 		
+		width: 100%;
+		text-align: center;
+	}
+
+	/* Fridge 2 (DX) */
+
+	.fridge2-mid {
+		width: 1200px;
+		height: 1600px;
+		padding: 0;
+		margin: 0;
+	}
+	.fridge2-left {
+		background-image:url('/modules/core/img/fridges/fridge2_left.png');		
+		width: 526px;
+		height: 1600px;
+		background-repeat:repeat-y;
+		padding: 0;
+		margin: 0;	
+		display: inline-block;	
+		float: left;
+	}
+	.fridge2-right {
+		background-image:url('/modules/core/img/fridges/fridge2_right.png');		
+		width: 674px;
+		height: 1600px;
+		background-repeat:repeat-y;
+		padding: 0;
+		margin: 0;	
+		display: inline-block;	
+		float: left;
+	}	
+	.fridge2-bot {
+		background-image:url('/modules/core/img/fridges/fridge2_bottom.png');
+		width: 1200px;
+		height: 50px;
+		padding: 0;
+		margin: 0;
+	}	
+	.fridge-clear {
+		clear: both;
+	}	
+	.panel2-left {
+		margin: 100 0 0 0;
+		padding: 0;
+	}
+	.panel2-left-top {
+		width: 400px;
+		height: 10px;
+		background-image:url('/modules/core/img/fridges/panel2_left_top.png');		
+	}
+	.panel2-left-mid {
+		width: 400px;
+		height: 280px;
+		background-repeat:repeat-y;		
+		background-image:url('/modules/core/img/fridges/panel2_left.png');		
+	}	
+	.panel2-left-bot {
+		width: 400px;
+		height: 10px;
+		background-image:url('/modules/core/img/fridges/panel2_left_bottom.png');		
+	}
+	.panel2-left-content {
+		width: 380px;
+		height: 280px;
+		padding: 0;
+		margin: 0 10px;
+		background-color: rgb(40,40,40);		
+	}
+
+	.icemaker {
+		margin: 20px 0 0 0;
+		padding: 0px;
+	}
+	.icemaker-top {
+		width: 400px;
+		height: 10px;
+		background-image:url('/modules/core/img/fridges/icemaker_top.png');		
+	}
+	.icemaker-mid {
+		width: 400px;
+		height: 130px;
+		background-repeat:repeat-y;		
+		background-image:url('/modules/core/img/fridges/icemaker.png');		
+	}	
+	.icemaker-bot {
+		width: 400px;
+		height: 372px;
+		background-image:url('/modules/core/img/fridges/icemaker_bottom.png');		
+	}
+	.icemaker-content {
+		width: 300px;
+		height: 130px;
+		padding: 0;
+		margin: 0 50px;
+		background-color: rgb(40,40,40);		
+	}
+	.fridge2-left-main {
+		width: 400px;
+		padding: 0;
+		margin: 0 0 0 60px;
+		display: inline-block;	
+		float: left;		
+	}
+	.fridge2-right-main {
+		width: 548px;
+		padding: 0;
+		margin: 0 0 0 15px;
+		display: inline-block;	
+		float: left;		
+	}	
+	.fridge2-handle {
+		background-image:url('/modules/core/img/fridges/fridge2_handle.png');	
+		background-repeat:repeat-y;			
+		width: 35px;
+		height: 800px;
+		padding: 0;	
+		margin: 250px 0 0 15px;	
+		display: inline-block;	
+		float: left;
+	}
+
+	.panel2-right {
+		margin: 175px 0 0 0;
+		padding: 0;
+	}
+	.panel2-right-top {
+		width: 548px;
+		height: 10px;
+		background-image:url('/modules/core/img/fridges/panel2_right_top.png');		
+	}
+	.panel2-right-mid {
+		width: 548px;
+		height: 528px;
+		background-repeat:repeat-y;		
+		background-image:url('/modules/core/img/fridges/panel2_right.png');		
+	}	
+	.panel2-right-bot {
+		width: 548px;
+		height: 17px;
+		background-image:url('/modules/core/img/fridges/panel2_right_bottom.png');		
+	}
+	.panel2-right-content {
+		width: 528px;
+		height: 528px;
+		padding: 0;
+		margin: 0 10px;
+		background-color: rgb(40,40,40);		
+	}
+
+	/* Fridge 3 (Mini) */
+
+	.fridge3-top {
+		background-image:url('/modules/core/img/fridges/fridge3_top.png');
+		width: 950px;
+		height: 7px;
+		padding: 0;
+		margin: 0;
+	}
+	.fridge3-mid {
+		background-image:url('/modules/core/img/fridges/fridge3_mid.png');
+		width: 950px;
+		height: 1000px;
+		background-repeat:repeat-y;
+		padding: 0;
+		margin: 0;	
+	}	
+	.fridge3-bot {
+		background-image:url('/modules/core/img/fridges/fridge3_bottom.png');
+		width: 950px;
+		height: 30px;
+		padding: 0;
+		margin: 0;
+	}
+	.panel3 {
+		margin: 15px 0 0 15px;
+		padding: 0;
+		width: 770px;
+		display: inline-block;
+		float: left;
+	}
+	.panel3-top {
+		background-image:url('/modules/core/img/fridges/panel3_top.png');
+		width: 770px;
+		height: 16px;
+		padding: 0;
+		margin: 0;	
+	}
+	.panel3-left {
+		width: 18px;
+		padding: 0;
+		margin: 0;
+		display: inline-block;
+		float: left;
+	}
+	.panel3-mid {
+		background-color: rgb(40,40,40);
+		width: 734px;
+		height: 600px;
+		padding: 0;
+		margin: 0;
+		display: inline-block;
+		float: left;	
+	}
+	.panel3-right {
+		width: 18px;
+		padding: 0;
+		margin: 0;
+		display: inline-block;
+		float: left;
+	}
+	.panel3-bot {
+		background-image:url('/modules/core/img/fridges/panel3_bottom.png');
+		width: 770px;
+		height: 35px;
+		padding: 0;
+		margin: 0;	
+		clear: both;
+	}	
+	.fridge3-handle {
+		background-image:url('/modules/core/img/fridges/fridge2_handle.png');	
+		background-color: #000;
+		background-repeat:repeat-y;			
+		width: 45px;
+		height: 970px;
+		padding: 0;	
+		margin: 15px 0 0 15px;	
+		display: inline-block;	
+		float: left;
+	}	
+
+	/* Fridge 4 (Top) */
+
+	.fridge4-top {
+		background-image:url('/modules/core/img/fridges/fridge4_top.png');
+		width: 1200px;
+		height: 100px;
+		padding: 0;
+		margin: 0;
+	}
+	.fridge4-mid-top {
+		background-image:url('/modules/core/img/fridges/fridge4_mid_top.jpg');
+		width: 1200px;
+		height: 348px;
+		padding: 0;
+		margin: 0;	
+	}	
+	.fridge4-main {
+		width: 1200px;
+		height: 461px;
+	}
+	.fridge4-left {
+		background-image:url('/modules/core/img/fridges/fridge4_left.jpg');
+		width: 267px;
+		height: 461px;
+		padding: 0;
+		margin: 0;	
+		display: inline-block;
+		float: left;
+	}	
+	.fridge4-content {
+		background-color: rgb(40,40,40);
+		width: 615px;
+		height: 461px;
+		padding: 0;
+		margin: 0;	
+		display: inline-block;
+		float: left;
+	}	
+	.fridge4-right {
+		background-image:url('/modules/core/img/fridges/fridge4_right.jpg');
+		width: 318px;
+		height: 461px;
+		padding: 0;
+		margin: 0;	
+		display: inline-block;
+		float: left;
+	}			
+	.fridge4-mid-bot {
+		background-image:url('/modules/core/img/fridges/fridge4_mid_bottom.jpg');
+		width: 1200px;
+		height: 996px;
+		padding: 0;
+		margin: 0;
+	}
+	.fridge4-bot {
+		background-image:url('/modules/core/img/fridges/fridge4_bottom.png');
+		width: 1200px;
+		height: 30px;
+		padding: 0;
+		margin: 0;
+	}
+	.fridge1 {
+		padding: 0;
+		margin: 10px;
+		display: inline-block;
+		width: 1200px;
+		position: relative; 
+		height: 2000px; 
+		z-index: 3		
+	}	
+	.fridge2 {
+		padding: 0;
+		margin: 50px;
+		display: inline-block;
+		width: 1200px;
+	}	
+	.fridge3 {
+		padding: 0;
+		margin: 50px;
+		display: inline-block;
+		width: 950px;
+	}					
+	.fridge4 {
+		padding: 0;
+		margin: 50px;
+		display: inline-block;
+		width: 1200px;
+	}	

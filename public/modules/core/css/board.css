@@ -1,0 +1,189 @@
+
+	/* CSS File for styling and animating Wello Boards */
+
+	.board {
+		float: left;
+		display: inline-block;
+		width: 152px;
+		height: 120px;
+		margin: 4px;
+		text-align: left;
+		padding: 6px 10px;
+		font-size: 1.2em;
+		font-weight: bold;
+		background-color: #1E6087;
+		color: #E5EBEF;
+		border-radius: 6px;
+		word-wrap: break-word;		
+	}
+
+	.board_scrollbar {
+		max-height: 500px;
+		width: 337px;
+		padding: 0;
+		margin: 0;
+		position: relative;
+		overflow: hidden;		
+	}	
+
+	.custom_board_active {
+		color: #fff !important;
+		border: 2px solid #fff !important;	
+		text-shadow: 2px 2px 5px #000, 2px 2px 5px #000 !important;
+	}
+
+	.board-new {
+		float: left;
+		display: inline-block;
+		width: 152px;
+		height: 120px;
+		margin: 4px;
+		text-align: center;
+		padding: 45px 10px;
+		font-size: 1.2em;
+		font-weight: bold;
+		background-color: #fff;
+		border: 2px dashed #1E6087;
+		color: #1E6087;
+		border-radius: 12px;
+		word-wrap: break-word;		
+	}	
+
+	.board-new:hover {
+		background-color: #E5EBEF;
+		border: 2px solid #1E6087;		
+	}
+
+	.board_active {
+		background-color: #1E4A74;
+		color: #4EA0F7;
+	}
+
+	.board_active:hover{
+		background-color: #1E4A74 !important;		
+	}
+
+	.board:hover {
+		background-color: #1E80A7;
+	}
+
+
+	.board-anim.ng-leave {
+	  -webkit-animation: do_nothing 0.4s linear; 
+	  /*-moz-animation: do_nothing 0.4s linear; 
+	  animation: do_nothing 0.4s linear;*/ 	  	  
+	}
+
+	 .board-anim.ng-enter {
+	  -webkit-animation: do_nothing 0.4s linear; 
+	  -moz-animation: do_nothing 0.4s linear; 
+	  animation: do_nothing 0.4s linear;*/ 	  	  
+	}	
+	@-webkit-keyframes do_nothing {
+	  from, to { opacity:1.0; }
+	}
+	@-moz-keyframes do_nothing {
+	  from, to { opacity:1.0; }
+	}
+	@keyframes do_nothing {
+	  from, to { opacity:1.0; }
+	}	
+
+	.board-anim.ng-enter div div {
+	  -webkit-animation: board_enter_sequence 0.4s ease-out; 
+	  -moz-animation: board_enter_sequence 0.4s ease-out; 
+	  animation: board_enter_sequence 0.4s ease-out; 	  	  
+	}
+	@-webkit-keyframes board_enter_sequence {
+	  from { opacity:0.0;-webkit-transform: scale(0.5); }
+	  to { opacity:1.0;-webkit-transform: scale(1.0); }
+	}
+	@-moz-keyframes board_enter_sequence {
+	  from { opacity:0.0;-moz-transform: scale(0.5); }
+	  to { opacity:1.0;-moz-transform: scale(1.0); }
+	}
+	@keyframes board_enter_sequence {
+	  from { opacity:0.0;transform: scale(0.5); }
+	  to { opacity:1.0;transform: scale(1.0); }
+	}	
+
+	.board-anim.ng-leave div div {
+	  -webkit-animation: board_leave_sequence 0.8s ease-out; 
+	  /*-moz-animation: board_leave_sequence 0.8s ease-out; 
+	  animation: board_leave_sequence 0.8s ease-out;   */	  
+	}
+	@-webkit-keyframes board_leave_sequence {
+	  from { opacity:1.0;-webkit-transform: scale(1.0); }
+	  to { opacity:0.0;-webkit-transform: scale(0.0); }
+	}
+	@-moz-keyframes board_leave_sequence {
+	  from { opacity:1.0;-moz-transform: scale(1.0); }
+	  to { opacity:0.0;-moz-transform: scale(0.0); }
+	}
+	@keyframes board_leave_sequence {
+	  from { opacity:1.0;transform: scale(1.0); }
+	  to { opacity:0.0;transform: scale(0.0); }
+	}	
+
+	.custom_board {
+		cursor: pointer; 
+		width: 100px; 
+		margin: 10px; 
+		padding: 10px 12px; 
+		border: 2px solid rgba(0,0,0,0); 
+		border-radius: 5px; 
+		color: #fff; 
+		font-weight: bold; 
+		font-size: 1.2em; 
+		text-shadow: 0 0 0.4em #000;
+	}
+
+	.boards_length {
+		font-size: 0.8em; 
+		vertical-align: middle;  
+		background-color: rgb(78, 160, 247); 
+		color: #249; 
+		padding: 3px 5px 2px 5px; 
+		margin: 0 2px; 
+		font-weight: bold;
+	}
+
+	.board_decoration {
+		position: absolute; 
+		left: 7px; 
+		bottom: 5px;
+	}
+
+	.board_delete {
+		padding: 2px 6px; 
+		height: 24px; 
+		margin-top: -2px; 
+		position: absolute; 
+		bottom: 7px; 
+		right: 7px;
+	}
+
+	.new_board_btn {
+		float: right; 
+		margin-right: -10px; 
+		height: 24px; 
+		padding: 1px 4px; 
+		display: inline-block;
+	}
+
+	.board_icon {
+		font-size: 0.9em; 
+		margin-top: -2px; 
+		vertical-align: middle;
+	}
+
+	.food_panel {
+		padding: 5px; 
+		margin-top: 10px;
+	}
+
+	.top_panel_dimension {
+		width: 905px; 
+		height: 410px; 
+		position: relative;
+	}
